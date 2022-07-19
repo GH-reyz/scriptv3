@@ -17,7 +17,7 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ip.conf | awk '{print $5}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/GH-reyz/registerv3/main/ip.conf | awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 VALIDITY

@@ -12,13 +12,15 @@ domain=$IP
 fi
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
-WKT=$(curl -s ipinfo.io/timezone )
+WKT=$(date +"%T")
 IPVPS=$(curl -s ipinfo.io/ip )
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 swap=$( free -m | awk 'NR==4 {print $2}' )
+hari=$(date +"%A")
+date=$(date +"%d-%B-%Y"
 clear
 # OS Uptime
 uptime="$(uptime -p | cut -d " " -f 2-10)"
@@ -92,9 +94,11 @@ echo -e "  \e[$text System Uptime        : $uptime"
 echo -e "  \e[$text Isp/Provider Name    : $ISP"
 echo -e "  \e[$text City Location        : $CITY"
 echo -e "  \e[$text Time Location        : $WKT"
+echo -e "  \e[$text Day Location         : $hari"
+echo -e "  \e[$text Date Location        : $date"
 echo -e "  \e[$text Ip Vps/Address       : $IPVPS"
 echo -e "  \e[$text Domain Name          : $domain\e[0m"
-echo -e "  \e[$text Version Name         : V1(Websocket)"
+echo -e "  \e[$text Version Name         : ReyzVPN (V3)"
 echo -e "  \e[$text Client Name          : $username"
 echo -e "  \e[$text Order ID             : $oid"
 echo -e "  \e[$text Expired Status       : $exp $sts"
@@ -111,7 +115,7 @@ echo -e   "  \e[$number [•5]\e[m \e[$below OPENSSH & OPENVPN\e[m           \e[
 echo -e   "  \e[$number [•6]\e[m \e[$below SYSTEM MENU\e[m                 \e[$number [12]\e[m \e[$below INFO ALL PORT\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   "  \e[$below Premium VPS by $creditt"
-echo -e   "  \e[$below Thank you for using script by Ichikaa1"
+echo -e   "  \e[$below Thank you for using script by ReyzVPN"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   ""
 echo -e   "  \e[$below [Ctrl + C] For exit from main menu\e[m"

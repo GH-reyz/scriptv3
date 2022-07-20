@@ -198,7 +198,7 @@ echo "47m" > /etc/back
 echo "1;35m" > /etc/number
 echo 3d > /usr/bin/test
 # Version
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/versionscriptv3/main/ver.conf )
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf )
 history -c
 echo "$ver" > /home/ver
 clear

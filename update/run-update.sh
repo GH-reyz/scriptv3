@@ -10,15 +10,15 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		exit 1
 fi
 echo ""
-ver=$(cat /home/ver)
+version=$(cat /home/ver)
 ver=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf )
 clear
 # CEK UPDATE
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
-Info1="${Green_font_prefix}[$ver]${Font_color_suffix}"
+Info1="${Green_font_prefix}[$version]${Font_color_suffix}"
 Info2="${Green_font_prefix}[LATEST VERSION]${Font_color_suffix}"
 Error="Version ${Green_font_prefix}[$ver]${Font_color_suffix} available${Red_font_prefix}[Please Update]${Font_color_suffix}"
-ver=$(cat /home/ver)
+version=$(cat /home/ver)
 new_version=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf | grep $version )
 #Status Version
 if [ $version = $new_version ]; then
@@ -35,10 +35,10 @@ echo "'----------------------------------------------'" | lolcat
 echo -e " \e[0;36mVERSION NOW \e[0;33m>>\e[0m $Info1"
 echo -e " \e[0;36mSTATUS UPDATE \e[0;33m>>\e[0m $sts"
 echo -e ""
-echo -e "\e[1;31mWould you like to proceed?\e[0m"
+echo -e "       \e[1;31mWould you like to proceed?\e[0m"
 echo ""
-echo -e "   [ Select Option ]" | lolcat
-echo -e "\e[0;32m[1]\e[0m Check Script Update Now"
+echo "            [ Select Option ]" | lolcat
+echo -e "      \e[0;32m[1]\e[0m Check Script Update Now"
 echo "-----------------------------------------" | lolcat
 echo -e "      \e[0;32m[x]\e[0m Back To Update Menu"
 echo -e "      \e[0;32m[y]\e[0m Back To Main Menu"
@@ -70,7 +70,7 @@ sleep 2
 echo -e "\e[1;36mStart Update For New Version, Please Wait..\e[m"
 sleep 2
 clear
-echo -e "\e[0;32mGetting New Version Script By ReyzVPN...\e[0m"
+echo -e "\e[0;32mGetting New Version Script By V-Code...\e[0m"
 sleep 1
 echo ""
 # UPDATE RUN-UPDATE
@@ -88,7 +88,6 @@ echo -e "\e[0;32mNew Version Downloading started!\e[0m"
 sleep 2
 cd /usr/bin
 wget -O update "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/update/update.sh"
-wget -O message-ssh "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/update/message-ssh.sh"
 wget -O bannermenu "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/update/bannermenu.sh"
 wget -O change-port "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/change.sh"
 wget -O add-ws "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/add-user/add-ws.sh"
@@ -96,7 +95,6 @@ chmod +x update
 chmod +x bannermenu
 chmod +x change-port
 chmod +x add-ws
-chmod +x message-ssh
 clear
 echo -e ""
 echo -e "\e[0;32mDownloaded successfully!\e[0m"

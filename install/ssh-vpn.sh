@@ -17,7 +17,7 @@ state="Kt"
 locality="ganu"
 organization="GH-reyz"
 organizationalunit="GH-reyz"
-commonname="GH-reyz"
+commonname="ReyzVPN"
 email="muhammadzamri150@gmail.com"
 
 # simple password minimal
@@ -261,6 +261,7 @@ netfilter-persistent reload
 
 # download script
 cd /usr/bin
+wget -O update "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/update/update.sh"
 wget -O add-host "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/system/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/system/about.sh"
 wget -O menu "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/menu.sh"
@@ -313,6 +314,7 @@ chmod +x trial
 chmod +x del-ssh
 chmod +x member
 chmod +x delete
+chmod +x update
 chmod +x cek-ssh
 chmod +x restart
 chmod +x speedtest

@@ -7,7 +7,7 @@ MYIP=$(curl -sS ipv4.icanhazip.com)
 # Valid Script
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl https://raw.githubusercontent.com/GH-reyz/scriptv3/main/ip.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/GH-reyz/registerv3/main/ip.conf | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
     else
@@ -16,7 +16,7 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/GH-reyz/scriptv3/main/ip.conf | awk '{print $5}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/GH-reyz/registerv3/main/ip.conf | awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 VALIDITY
@@ -30,16 +30,16 @@ RED='\e[1;31m'
 GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
-version=$(cat /home/ver)
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/version.conf )
+ver=$(cat /home/ver)
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf )
 clear
 # CEK UPDATE
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
-Info1="${Green_font_prefix}[$version]${Font_color_suffix}"
+Info1="${Green_font_prefix}[$ver]${Font_color_suffix}"
 Info2="${Green_font_prefix}[LATEST VERSION]${Font_color_suffix}"
 Error="Version ${Green_font_prefix}[$ver]${Font_color_suffix} available${Red_font_prefix}[Please Update]${Font_color_suffix}"
-version=$(cat /home/ver)
-new_version=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/version.conf | grep $version )
+vers=$(cat /home/ver)
+new_version=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf | grep $version )
 #Status Version
 if [ $version = $new_version ]; then
 sts="${Info2}"
@@ -51,16 +51,16 @@ clear
 # Echo Shell
 echo ""
 echo ""
-echo -e "  .-------------------------------------------------------." | lolcat
-echo -e "  |                    UPDATE SCRIPT MENU                 |" | lolcat
-echo -e "  '-------------------------------------------------------'" | lolcat
-echo -e "  \e[0;36mVERSION NOW \e[0;33m>>\e[0m $Info1"
-echo -e "  \e[0;36mSTATUS UPDATE \e[0;33m>>\e[0m $sts"
-echo -e ""
+echo -e "\e[0;36m-------------------------------------------------------" | lolcat
+echo -e "                    UPDATE SCRIPT MENU                 " | lolcat
+echo -e "\e[0;36m-------------------------------------------------------" | lolcat
+echo -e " \e[0;36mVERSION NOW \e[0;33m>>\e[0m $Info1"
+echo -e " \e[0;36mSTATUS UPDATE \e[0;33m>>\e[0m $sts"
+echo -e " "
 echo -e "     \e[0;36m1.\e[0m Change Banner SSH"
 echo -e "     \e[0;36m2.\e[0m Check Update/New Version Script"
 echo ""
-echo -e "  --------------------------------------------------------" | lolcat
+echo -e "  \e[0;36m--------------------------------------------------------" | lolcat
 echo -e "    \e[0;32m[x]\e[0m  Back To Main Menu"
 echo -e ""
 read -p "     Select From Options [1-3 or x] :  " port

@@ -39,7 +39,47 @@ username=$(cat /usr/bin/user)
 oid=$(cat /usr/bin/ver)
 exp=$(cat /usr/bin/e)
 clear
-
+bulan=$(date +%b)
+vnstat_profile=$(vnstat | sed -n '3p' | awk '{print $1}' | grep -o '[^:]*')
+vnstat -i ${vnstat_profile} >/root/t1
+today=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
+today_v=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $9}')
+today_rx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $2}')
+today_rxv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $3}')
+today_tx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $5}')
+today_txv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $6}')
+if [ "$(grep -wc ${bulan} /root/t1)" != '0' ]; then
+  bulan=$(date +%b)
+  month=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $9}')
+  month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $10}')
+  month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $3}')
+  month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $4}')
+  month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $6}')
+  month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $7}')
+else
+  bulan=$(date +%Y-%m)
+  month=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $8}')
+  month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $9}')
+  month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $2}')
+  month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $3}')
+  month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $5}')
+  month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $6}')
+fi
+if [ "$(grep -wc yesterday /root/t1)" != '0' ]; then
+  yesterday=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $8}')
+  yesterday_v=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $9}')
+  yesterday_rx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $2}')
+  yesterday_rxv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $3}')
+  yesterday_tx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $5}')
+  yesterday_txv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $6}')
+else
+  yesterday=NULL
+  yesterday_v=NULL
+  yesterday_rx=NULL
+  yesterday_rxv=NULL
+  yesterday_tx=NULL
+  yesterday_txv=NULL
+fi
 # STATUS EXPIRED ACTIVE
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[4$below" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}(Active)${Font_color_suffix}"
@@ -100,6 +140,11 @@ echo -e "  \e[$text Order ID             : $oid"
 echo -e "  \e[$text Expired Status       : $exp $sts"
 echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
 echo -e "  \e[$text Provided By          : $creditt"
+echo -e   "  \e[$line════════════════════════════════════════════════════════════\e[m"
+echo -e   " TRAFFIC           TODAY          YESTERDAY          MONTH" | lolcat
+echo -e   " UPLOAD            $today_tx $today_txv      $yesterday_tx $yesterday_txv         $month_tx $month_txv"
+echo -e   " DOWNLOAD          $today_rx $today_rxv      $yesterday_rx $yesterday_rxv         $month_rx $month_rxv"
+echo -e   " TOTAL             $today $today_v      $yesterday $yesterday_v         $month $month_v"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"

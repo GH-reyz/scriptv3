@@ -111,7 +111,7 @@ echo -e   "  \e[$number [•4]\e[m \e[$below PANEL SHADOWSOCKS\e[m           \e[
 echo -e   "  \e[$number [•5]\e[m \e[$below OPENSSH & OPENVPN\e[m           \e[$number [11]\e[m \e[$below REBOOT VPS\e[m"
 echo -e   "  \e[$number [•6]\e[m \e[$below SYSTEM MENU\e[m                 \e[$number [12]\e[m \e[$below INFO ALL PORT\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e   "  \e[$number \e[m client Name : $username\e[m"
+echo -e   "  \e[$number Client Name :\e[m \e[$below $username\e[m"
 echo -e   "  \e[$below Script Status : $exp $sts"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   ""

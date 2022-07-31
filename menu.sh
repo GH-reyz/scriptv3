@@ -1,4 +1,4 @@
-#!/bin/bash
+nk#!/bin/bash
 #wget https://github.com/${GitUser}/
 GitUser="GH-reyz"
 #IZIN SCRIPT
@@ -80,7 +80,6 @@ ascii=$(cat /usr/bin/test)
 clear
 echo -e "\e[$banner_colour"
 figlet -f $ascii "$banner"
-echo -e "\e[$text Premium Server By $creditt"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                    \e[30m[\e[$box SERVER INFORMATION\e[30m ]\e[1m                  \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
@@ -95,11 +94,9 @@ echo -e "  \e[$text Time Location        : $WKT"
 echo -e "  \e[$text Ip Vps/Address       : $IPVPS"
 echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text Version Name         : ReyzV4 (V3)"
-echo -e "  \e[$text Client Name          : $username"
-echo -e "  \e[$text Order ID             : $oid"
 echo -e "  \e[$text Expired Status       : $exp $sts"
 echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
-echo -e "  \e[$text Provided By          : $creditt"
+echo -e "  \e[$text Premium Server By    : $creditt"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
@@ -110,8 +107,10 @@ echo -e   "  \e[$number [•4]\e[m \e[$below PANEL SHADOWSOCKS\e[m           \e[
 echo -e   "  \e[$number [•5]\e[m \e[$below OPENSSH & OPENVPN\e[m           \e[$number [11]\e[m \e[$below REBOOT VPS\e[m"
 echo -e   "  \e[$number [•6]\e[m \e[$below SYSTEM MENU\e[m                 \e[$number [12]\e[m \e[$below INFO ALL PORT\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e   "  \e[$below Premium VPS by $creditt "
-echo -e   "  \e[$below Thank you for using script by ReyzV4 "
+echo -e   "  \e[$below Order ID       : $oid"
+echo -e   "  \e[$below Client Name    : $username"
+echo -e   "  \e[$below Expired Script : $exp $sts"
+echo -e   "  \e[$below Thank you for using script by Reyz-V4 "
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   ""
 echo -e   "  \e[$below [Ctrl + C] For exit from main menu\e[m"

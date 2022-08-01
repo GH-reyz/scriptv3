@@ -1,4 +1,4 @@
-ni#!/bin/bash
+#!/bin/bash
 #wget https://github.com/${GitUser}/
 GitUser="GH-reyz"
 #IZIN SCRIPT

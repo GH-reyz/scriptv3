@@ -1291,7 +1291,7 @@ sleep 0.5
 menu
 elif [[ "$bc" = "7" ]]; then
 clear
-echo "1;36m" > /etc/banner
+echo "1;37m" > /etc/banner
 echo "30m" > /etc/box
 echo "1;31m" > /etc/line
 echo "1;36m" > /etc/text

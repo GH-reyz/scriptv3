@@ -20,6 +20,7 @@ freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 swap=$( free -m | awk 'NR==4 {print $2}' )
 DATE=$(date +"%d-%B-%Y")
+bulan=$(date +%b)
 vnstat_profile=$(vnstat | sed -n '3p' | awk '{print $1}' | grep -o '[^:]*')
 vnstat -i ${vnstat_profile} >/root/t1
 today=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')

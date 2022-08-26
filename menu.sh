@@ -20,6 +20,7 @@ freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
 tram=$( free -m | awk 'NR==2 {print $2}' )
 swap=$( free -m | awk 'NR==4 {print $2}' )
 DATE=$(date +"%d-%B-%Y")
+red=='\e[0;31m'
 #Download/Upload today
 dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
 utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
@@ -111,7 +112,7 @@ echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text Telegram             : @GHReyz"
 echo -e "  \e[$text Script Version       : SC (V3)"
 echo -e "  \e[$text Order ID             : $oid"
-echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
+echo -e "  \e[$text Certificate Status   :\e[m ${red}Expired in $certifacate days"
 echo -e "  \e[$text Provided By          : $creditt"
 echo -e   " \e[$line------------------------------------------------------------\e[m"
 echo -e   "  \e[33m Traffic\e[0m       \e[33mToday     Yesterday     Month   "

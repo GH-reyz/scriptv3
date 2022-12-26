@@ -19,7 +19,7 @@ clear
 # Version sc
 VERSIONSC () {
     VCODE=V1
-    IZINVERSION=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ip.conf | grep $MYIP | awk '{print $6}')
+    IZINVERSION=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ipvps.conf| grep $MYIP | awk '{print $6}')
     if [ $VCODE = $IZINVERSION ]; then
     echo -e "\e[32mReady for script installation version 1 (websocket)..\e[0m"
     else
@@ -30,7 +30,7 @@ fi
 # Valid Script
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ip.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ipvps.conf| grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
 	VERSIONSC
@@ -40,7 +40,7 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ip.conf | awk '{print $5}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ipvps.conf| awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 VALIDITY
@@ -95,7 +95,7 @@ echo ""
 if [[ $host == "1" ]]; then
 echo -e "   \e[1;32mPlease enter your subdomain "
 read -p "   Subdomain: " host1
-echo "IP=" >> /var/lib/premium-script/ip.conf
+echo "IP=" >> /var/lib/premium-script/ipvps.conf
 echo $host1 > /root/domain
 echo ""
 elif [[ $host == "2" ]]; then
@@ -198,14 +198,14 @@ echo "47m" > /etc/back
 echo "1;35m" > /etc/number
 echo 3d > /usr/bin/test
 # Version
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf )
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/version.conf )
 history -c
 echo "$ver" > /home/ver
 clear
 echo " "
 echo "Installation has been completed!!"
 echo " "
-echo "=========================[ REYZVPN AUTOSCRIPT V3 ]========================" | tee -a log-install.txt
+echo "=========================[SCRIPT PREMIUM]========================" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "-----------------------------------------------------------------" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
@@ -243,11 +243,11 @@ echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "    [INFORMASI XRAY]"  | tee -a log-install.txt
 echo "    ----------------" | tee -a log-install.txt
-echo "   - Xray Vmess Ws Tls       : 443"  | tee -a log-install.txt
-echo "   - Xray Vless Ws Tls       : 443"  | tee -a log-install.txt
+echo "   - Xray Vmessscriptv3 Tls       : 443"  | tee -a log-install.txt
+echo "   - Xray Vlessscriptv3 Tls       : 443"  | tee -a log-install.txt
 echo "   - Xray Vless Tcp Xtls     : 443"  | tee -a log-install.txt
-echo "   - Xray Vmess Ws None Tls  : 80"  | tee -a log-install.txt
-echo "   - Xray Vless Ws None Tls  : 8080"  | tee -a log-install.txt
+echo "   - Xray Vmessscriptv3 None Tls  : 80"  | tee -a log-install.txt
+echo "   - Xray Vlessscriptv3 None Tls  : 8080"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "    [INFORMASI TROJAN]"  | tee -a log-install.txt
 echo "    ------------------" | tee -a log-install.txt
@@ -256,7 +256,7 @@ echo "   - Trojan Go               : 2083"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "    [INFORMASI CLASH FOR ANDROID (YAML)]"  | tee -a log-install.txt
 echo "    -----------------------------------" | tee -a log-install.txt
-echo "   - Xray Vmess Ws Yaml      : Yes"  | tee -a log-install.txt
+echo "   - Xray Vmess Yaml      : Yes"  | tee -a log-install.txt
 echo "   - Shadowsocks Yaml        : Yes"  | tee -a log-install.txt
 echo "   - ShadowsocksR Yaml       : Yes"  | tee -a log-install.txt
 echo "   --------------------------------------------------------------" | tee -a log-install.txt
@@ -275,7 +275,7 @@ echo "   - Auto Delete Expired Account" | tee -a log-install.txt
 echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
-echo "-------------------------SCRIPT BY REYZVPN-----------------------" | tee -a log-install.txt
+echo "-------------------------Script By DiyVpn-----------------------" | tee -a log-install.txt
 clear
 echo ""
 echo ""

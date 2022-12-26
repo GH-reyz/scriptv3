@@ -119,6 +119,19 @@ sleep 1
 wget https://raw.githubusercontent.com/${GitUser}/scriptv3/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 echo -e "\e[0;32mDONE INSTALLING SSH & OVPN\e[0m"
 clear
+#install ssr
+echo -e "\e[0;32mINSTALLING SS & SSR...\e[0m"
+sleep 1
+wget https://raw.githubusercontent.com/${GitUser}/scriptv3/main/install/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+wget https://raw.githubusercontent.com/${GitUser}/scriptv3/main/install/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+echo -e "\e[0;32mDONE INSTALLING SS & SSR\e[0m"
+clear
+#installwg
+echo -e "\e[0;32mINSTALLING WIREGUARD...\e[0m"
+sleep 1
+wget https://raw.githubusercontent.com/${GitUser}/scriptv3/main/install/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+echo -e "\e[0;32mDONE INSTALLING WIREGUARD\e[0m"
+clear
 #install Xray
 echo -e "\e[0;32mINSTALLING XRAY CORE...\e[0m"
 sleep 1
@@ -165,6 +178,9 @@ wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}
 /etc/init.d/nginx restart
 #finish
 rm -f /root/ssh-vpn.sh
+rm -f /root/wg.sh
+rm -f /root/ss.sh
+rm -f /root/ssr.sh
 rm -f /root/ins-xray.sh
 rm -f /root/trojan-go.sh
 rm -f /root/set-br.sh
@@ -173,13 +189,13 @@ rm -f /root/ohp-dropbear.sh
 rm -f /root/ohp-ssh.sh
 rm -f /root/websocket.sh
 # Colour Default
-echo "0;36m" > /etc/banner
+echo "1;36m" > /etc/banner
 echo "30m" > /etc/box
-echo "0;35m" > /etc/line
-echo "0;32m" > /etc/text
-echo "0;33m" > /etc/below
+echo "1;31m" > /etc/line
+echo "1;32m" > /etc/text
+echo "1;33m" > /etc/below
 echo "47m" > /etc/back
-echo "0;35m" > /etc/number
+echo "1;35m" > /etc/number
 echo 3d > /usr/bin/test
 # Version
 ver=$( curl https://raw.githubusercontent.com/${GitUser}/scriptv3/main/ver.conf )
@@ -214,6 +230,16 @@ echo "    ---------------------------" | tee -a log-install.txt
 echo "   - Squid Proxy             : 3128, 8000 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
 echo "   - Nginx                   : 81"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "    [INFORMASI WG]"  | tee -a log-install.txt
+echo "    --------------" | tee -a log-install.txt
+echo "   - Wireguard               : 5820"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "    [INFORMASI Shadowsocks-R & Shadowsocks]"  | tee -a log-install.txt
+echo "    ---------------------------------------" | tee -a log-install.txt
+echo "   - Shadowsocks-R           : 1443-1543"  | tee -a log-install.txt
+echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
+echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "    [INFORMASI XRAY]"  | tee -a log-install.txt
 echo "    ----------------" | tee -a log-install.txt

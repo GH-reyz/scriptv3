@@ -122,12 +122,11 @@ echo -e   "  \e[33m Total\e[0m       \033[0;36m  $ttoday    $tyest       $tmon  
 echo -e   " \e[$line------------------------------------------------------------\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line------------------------------------------------------------\e[m"
-echo -e   "  \e[$number [•1]\e[m \e[$below XRAY VMESS & VLESS\e[m          \e[$number [•7]\e[m \e[$below MENU THEMES\e[m"
-echo -e   "  \e[$number [•2]\e[m \e[$below TROJAN XRAY & GO\e[m            \e[$number [•8]\e[m \e[$below CLEAR LOG VPS\e[m"
-echo -e   "  \e[$number [•3]\e[m \e[$below PANEL WIREGUARDS\e[m            \e[$number [•9]\e[m \e[$below CHANGE PORT\e[m"
-echo -e   "  \e[$number [•4]\e[m \e[$below PANEL SHADOWSOCKS\e[m           \e[$number [10]\e[m \e[$below CHECK RUNNING\e[m"
-echo -e   "  \e[$number [•5]\e[m \e[$below OPENSSH & OPENVPN\e[m           \e[$number [11]\e[m \e[$below REBOOT VPS\e[m"
-echo -e   "  \e[$number [•6]\e[m \e[$below SYSTEM MENU\e[m                 \e[$number [12]\e[m \e[$below INFO ALL PORT\e[m"
+echo -e   "  \e[$number [•1]\e[m \e[$below XRAY VMESS & VLESS\e[m          \e[$number [•6]\e[m \e[$below MENU THEMES\e[m"
+echo -e   "  \e[$number [•2]\e[m \e[$below TROJAN XRAY & GO\e[m            \e[$number [•7]\e[m \e[$below CLEAR LOG VPS\e[m"
+echo -e   "  \e[$number [•3]\e[m \e[$below OPENSSH & OPENVPN\e[m           \e[$number [•8]\e[m \e[$below CHANGE PORT\e[m"
+echo -e   "  \e[$number [•4]\e[m \e[$below SYSTEM MENU\e[m                 \e[$number [•9]\e[m \e[$below CHECK RUNNING\e[m"
+echo -e   "  \e[$number [•5]\e[m \e[$below INFO ALL PORT\e[m               \e[$number [•10]\e[m \e[$below REBOOT VPS\e[m"
 echo -e   " \e[$line-----------------------------------------------------------\e[m"
 echo -e   "  \e[$number Client Name   :\e[m \e[$below $username\e[m"
 echo -e   "  \e[$number Script Status :\e[m \e[$below $exp\e[m $sts"
@@ -145,33 +144,27 @@ xraay
 trojaan
 ;;
 3)
-wgr
-;;
-4)
-ssssr
-;;
-5)
 ssh
 ;;
-6)
+4)
 system
 ;;
-7)
+6)
 themes
 ;;
-8)
+7)
 clear-log
 ;;
-9)
+8)
 change-port
 ;;
-10)
+9)
 check-sc
 ;;
-11)
+10)
 reboot
 ;;
-12)
+5)
 info
 ;;
 x)

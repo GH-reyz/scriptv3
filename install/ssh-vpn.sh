@@ -1,5 +1,5 @@
 #!/bin/bash
-# By Ichikaa
+# By Reyz
 # ==================================================
 #wget https://github.com/${GitUser}/
 GitUser="GH-reyz"

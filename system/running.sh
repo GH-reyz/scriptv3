@@ -329,6 +329,43 @@ then
 echo -e " Trojan Go               : "$green"running"$NC" ✓"
 else
 echo -e " Trojan Go               : "$red"not running (Error)"$NC" "
+fi
+echo -e ""
+echo -e "\e[1;33mSTATUS SHADOWSOCK:\e[0m"
+echo -e "\e[0;34m-------------------\e[0m"
+status="$(systemctl show ssrmu --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " ShadowsockR             : "$green"running"$NC" ✓"
+else
+echo -e " ShadowsockR             : "$red"not running (Error)"$NC" "
+fi
+status="$(systemctl show shadowsocks-libev.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " Shadowsocks             : "$green"running"$NC" ✓"
+else
+echo -e " Shadowsocks             : "$red"not running (Error)"$NC" "
+fi
+echo -e ""
+echo -e "\e[1;33mSTATUS WIREGUARD:\e[0m"
+echo -e "\e[0;34m------------------\e[0m"
+status="$(systemctl show wg-quick@wg0 --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e " Wireguard               : "$green"running"$NC" ✓"
+else
+echo -e " Wireguard               : "$red"not running (Error)"$NC" "
+fi
+echo -e ""
+echo -e "\e[1;33mSTATUS NGIX & SQUID:\e[0m"
+echo -e "\e[0;34m--------------------\e[0m"
+status="$(systemctl show nginx.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
 then
 echo -e " Nginx                   : "$green"running"$NC" ✓"
 else
@@ -345,4 +382,4 @@ fi
 echo -e "\e[0;34m-----------------------------------------------------------\e[0m"
 echo -e ""
 echo -e "${green}JIKA TERDAPAT NOT RUNNING, PLEASE REPORT TO ADMIN FOR FIX$NC"
-echo -e "${green}Report to Reyz @GHReyz1$NC"
+echo -e "${green}Report to Ichikaa @Ichikaa1$NC"

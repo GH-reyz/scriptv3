@@ -329,7 +329,6 @@ then
 echo -e " Trojan Go               : "$green"running"$NC" ✓"
 else
 echo -e " Trojan Go               : "$red"not running (Error)"$NC" "
-fi
 then
 echo -e " Nginx                   : "$green"running"$NC" ✓"
 else

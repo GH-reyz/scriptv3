@@ -45,7 +45,8 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 * 𝑷𝒂𝒌𝒚𝒂𝑽𝑷𝑵 
 * 𝑮𝑯𝑹𝒆𝒚𝒛
 
-𝑪𝒐𝒏𝒕𝒂𝒄𝒕 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎 𝑱𝒊𝒌𝒂 𝑩𝒆𝒓𝒎𝒊𝒏𝒂𝒕 : @𝑮𝑯𝑹𝒆𝒚𝒛 / 𝑹𝒆𝒚𝒛𝑽4
+𝑪𝒐𝒏𝒕𝒂𝒄𝒕 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎 𝑱𝒊𝒌𝒂 𝑩𝒆𝒓𝒎𝒊𝒏𝒂𝒕 / 𝑹𝒆𝒈𝒊𝒔𝒕𝒆𝒓 𝑰𝑷 : @𝑮𝑯𝑹𝒆𝒚𝒛 / 𝑹𝒆𝒚𝒛𝑽4
+
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Copyright%20©-PADU%20AutoScriptVPN%202022.%20All%20rights%20reserved...-blueviolet.svg" style="max-width:200%;">

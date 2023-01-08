@@ -41,8 +41,8 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   >>> Service & Port                                                                                                                                               
-[INFORMASI SSH & OpenVPN]                                                       
+                                                                                                                                               
+🔰[INFO SSH & OpenVPN]🔰                                                       
 -------------------------                                                      
 - OpenSSH                 : 22                                                  
 - OpenVPN                 : TCP 1194, UDP 2200                                  
@@ -54,13 +54,14 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 - OHP OpenVPN             : 8787                                                
 - Websocket SSH(HTTP)     : 2081                                                
 - Websocket SSL(HTTPS)    : 222                                                 
-- Websocket OpenVPN       : 2084                                                                                                                                 
-[INFORMASI Sqd, Bdvp, Ngnx]                                                     
+- Websocket OpenVPN       : 2084 
+                                                                                                                                
+🔰[INFO Sqd, Bdvp, Ngnx]🔰                                                   
 ---------------------------                                                    
 - Squid Proxy             : 3128, 8000 (limit to IP Server)                     
 - Badvpn                  : 7100, 7200, 7300                                    
 - Nginx                   : 81                                                                                                                                   
-[INFORMASI XRAY]                                                                
+[INFO XRAY]                                                                
 ----------------                                                               
 - Xray Vmess Ws Tls       : 443                                                 
 - Xray Vless Ws Tls       : 443
@@ -68,12 +69,12 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 - Xray Vmess Ws None Tls  : 80
 - Xray Vless Ws None Tls  : 8080
 
-[INFORMASI TROJAN]
+🔰[INFO TROJAN]🔰
 ------------------
 - Xray Trojan Tcp Tls     : 443
 - Trojan Go               : 2083
 
-[INFO CLASH FOR ANDROID (YAML)]
+🔰[INFO CLASH FOR ANDROID (YAML)🔰
 ----------------------------------
 - Xray Vmess Ws Yaml      : Yes
 - Shadowsocks Yaml        : Yes

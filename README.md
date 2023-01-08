@@ -53,7 +53,7 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 - Websocket SSL(HTTPS)    : 222                                                 
 - Websocket OpenVPN       : 2084 
                                                                                                                                 
-🔰[𝑰𝑵𝑭𝑶 𝑺𝒒𝒖𝒊𝒅, 𝑩𝒅𝒗𝒑𝒏, 𝑵𝒈𝒊𝒏𝒙]🔰                                                   
+🔰[𝑰𝑵𝑭𝑶 𝑺𝒒,𝑩𝒅𝒗,𝑵𝒈𝒊𝒏𝒙]🔰                                                   
 ---------------------------                                                    
 - Squid Proxy             : 3128, 8000 (limit to IP Server)                     
 - Badvpn                  : 7100, 7200, 7300                                    
@@ -72,7 +72,7 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 - Xray Trojan Tcp Tls     : 443
 - Trojan Go               : 2083
 
-🔰[𝑰𝑵𝑭𝑶 𝑪𝑳𝑨𝑺𝑯 𝑭𝑶𝑹 𝑨𝑵𝑫𝑹𝑶𝑰𝑫 (𝒀𝑨𝑴𝑳)🔰
+🔰𝑰𝑵𝑭𝑶 𝑪𝑭𝑨 (𝒀𝑨𝑴𝑳)🔰
 ----------------------------------
 - Xray Vmess Ws Yaml      : ✓
 

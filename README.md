@@ -3,9 +3,6 @@
 <img src="https://i.postimg.cc/wTZ8vSdW/IMG-20230109-001118.jpg"></h2>
 <img src="https://i.postimg.cc/JzjsrYw8/IMG-20230107-001941.jpg"></h2>
 
-# 𝑺𝒆𝒓𝒗𝒊𝒄𝒆 & 𝑷𝒐𝒓𝒕
-<img src="https://i.postimg.cc/1XykFtXM/IMG-20230107-001952.jpg"></h2>
-
 # 𝑨𝒖𝒕𝒐𝑺𝒄𝒓𝒊𝒑𝒕 𝑻𝒉𝒆𝒎𝒆
 <img src="https://i.postimg.cc/w380N4wz/IMG-20230107-004553.jpg"></h2>
 <img src="https://i.postimg.cc/pTKv84ZV/IMG-20230107-001929.jpg"></h2>
@@ -42,7 +39,7 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                                                                                                                                                
-🔰[INFO SSH & OpenVPN]🔰                                                       
+🔰[𝑰𝑵𝑭𝑶 𝑺𝑺𝑯 & 𝑶𝒑𝒆𝒏𝑽𝑷𝑵]🔰                                                       
 -------------------------                                                      
 - OpenSSH                 : 22                                                  
 - OpenVPN                 : TCP 1194, UDP 2200                                  
@@ -56,12 +53,13 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 - Websocket SSL(HTTPS)    : 222                                                 
 - Websocket OpenVPN       : 2084 
                                                                                                                                 
-🔰[INFO Sqd, Bdvp, Ngnx]🔰                                                   
+🔰[𝑰𝑵𝑭𝑶 𝑺𝒒𝒖𝒊𝒅, 𝑩𝒅𝒗𝒑𝒏, 𝑵𝒈𝒊𝒏𝒙]🔰                                                   
 ---------------------------                                                    
 - Squid Proxy             : 3128, 8000 (limit to IP Server)                     
 - Badvpn                  : 7100, 7200, 7300                                    
-- Nginx                   : 81                                                                                                                                   
-[INFO XRAY]                                                                
+- Nginx                   : 81  
+                                                                                                                                 
+🔰[𝑰𝑵𝑭𝑶 𝑿𝒓𝒂𝒚]🔰                                                                
 ----------------                                                               
 - Xray Vmess Ws Tls       : 443                                                 
 - Xray Vless Ws Tls       : 443
@@ -69,16 +67,14 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 - Xray Vmess Ws None Tls  : 80
 - Xray Vless Ws None Tls  : 8080
 
-🔰[INFO TROJAN]🔰
+🔰[𝑰𝑵𝑭𝑶 𝑻𝒓𝒐𝒋𝒂𝒏]🔰
 ------------------
 - Xray Trojan Tcp Tls     : 443
 - Trojan Go               : 2083
 
-🔰[INFO CLASH FOR ANDROID (YAML)🔰
+🔰[𝑰𝑵𝑭𝑶 𝑪𝑳𝑨𝑺𝑯 𝑭𝑶𝑹 𝑨𝑵𝑫𝑹𝑶𝑰𝑫 (𝒀𝑨𝑴𝑳)🔰
 ----------------------------------
-- Xray Vmess Ws Yaml      : Yes
-- Shadowsocks Yaml        : Yes
-- ShadowsocksR Yaml       : Yes
+- Xray Vmess Ws Yaml      : ✓
 
 --------------------------------------------------------------
    >>> Server Information & Other Features

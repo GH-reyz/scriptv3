@@ -150,7 +150,7 @@ echo -e   "  \e[$number [•5]\e[m \e[$below INFO ALL PORT\e[m           \e[$num
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   "  \e[$number Client Name   :\e[m \e[$below $username\e[m"
 echo -e   "  \e[$number Script Status :\e[m \e[$below $exp\e[m $sts"
-echo -e   "  \e[$number AutoScript By : @GHReyz"
+echo -e   "  \e[$number AutoScript By :\e[m \e[$below @GHReyz"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   ""
 echo -e   "  \e[$below [Ctrl + C] For exit from main menu\e[m"

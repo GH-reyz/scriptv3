@@ -1,5 +1,6 @@
 # 𝑺𝒄𝒓𝒊𝒑𝒕 𝑽3 𝑩𝒚 𝑮𝑯-𝑹𝒆𝒚𝒛
- <h2 align="center"><img src="https://i.postimg.cc/2yNJD5nr/IMG-20230107-001923.jpg"></h2>
+ <h2 align="center"><img src="https://i.postimg.cc/rp6kh7nd/IMG-20230109-001107.jpg"></h2>
+<img src="https://i.postimg.cc/wTZ8vSdW/IMG-20230109-001118.jpg"></h2>
 <img src="https://i.postimg.cc/JzjsrYw8/IMG-20230107-001941.jpg"></h2>
 
 # 𝑺𝒆𝒓𝒗𝒊𝒄𝒆 & 𝑷𝒐𝒓𝒕
@@ -40,6 +41,59 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   >>> Service & Port                                                                                                                                               
+[INFORMASI SSH & OpenVPN]                                                       
+-------------------------                                                      
+- OpenSSH                 : 22                                                  
+- OpenVPN                 : TCP 1194, UDP 2200                                  
+- OpenVPN SSL             : 110                                                 
+- Stunnel4                : 222, 777                                            
+- Dropbear                : 442, 109                                            
+- OHP Dropbear            : 8585                                                
+- OHP SSH                 : 8686                                                
+- OHP OpenVPN             : 8787                                                
+- Websocket SSH(HTTP)     : 2081                                                
+- Websocket SSL(HTTPS)    : 222                                                 
+- Websocket OpenVPN       : 2084                                                                                                                                 
+[INFORMASI Sqd, Bdvp, Ngnx]                                                     
+---------------------------                                                    
+- Squid Proxy             : 3128, 8000 (limit to IP Server)                     
+- Badvpn                  : 7100, 7200, 7300                                    
+- Nginx                   : 81                                                                                                                                   
+[INFORMASI XRAY]                                                                
+----------------                                                               
+- Xray Vmess Ws Tls       : 443                                                 
+- Xray Vless Ws Tls       : 443
+- Xray Vless Tcp Xtls     : 443
+- Xray Vmess Ws None Tls  : 80
+- Xray Vless Ws None Tls  : 8080
+
+[INFORMASI TROJAN]
+------------------
+- Xray Trojan Tcp Tls     : 443
+- Trojan Go               : 2083
+
+[INFO CLASH FOR ANDROID (YAML)]
+----------------------------------
+- Xray Vmess Ws Yaml      : Yes
+- Shadowsocks Yaml        : Yes
+- ShadowsocksR Yaml       : Yes
+
+--------------------------------------------------------------
+   >>> Server Information & Other Features
+   - Timezone                : Asia/Kuala_Lumpur (GMT +8)
+   - Fail2Ban                : [ON]
+   - Dflate                  : [ON]
+   - IPtables                : [ON]
+   - Auto-Reboot             : [ON]
+   - IPv6                    : [OFF]
+   - Autoreboot On 05.00 GMT +8
+   - Autobackup Data
+   - Restore Data
+   - Auto Delete Expired Account
+   - Full Orders For Various Services
+   - White Label
+   - Installation Log --> /root/log-install.txt
 
 ## 𝑪𝒓𝒆𝒅𝒊𝒕 : 
 * 𝑷𝒂𝒌𝒚𝒂𝑽𝑷𝑵 

@@ -93,7 +93,6 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
    - Installation Log --> /root/log-install.txt
 
 ## 𝑪𝒓𝒆𝒅𝒊𝒕 : 
-* 𝑷𝒂𝒌𝒚𝒂𝑽𝑷𝑵 (Inspirasi)
 * 𝑮𝑯𝑹𝒆𝒚𝒛
 
 𝑪𝒐𝒏𝒕𝒂𝒄𝒕 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎 𝑱𝒊𝒌𝒂 𝑩𝒆𝒓𝒎𝒊𝒏𝒂𝒕 / 𝑹𝒆𝒈𝒊𝒔𝒕𝒆𝒓 𝑰𝑷 👇 @𝑮𝑯𝑹𝒆𝒚𝒛 / @R𝒆𝒚𝒛𝑽4

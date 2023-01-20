@@ -112,7 +112,7 @@ clear
 echo -e "\e[$banner_colour"
 figlet -f $ascii "$banner"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e   " \e[$back_text                   \e[30m[\e[$box 𝑺𝑬𝑹𝑽𝑬𝑹 𝑰𝑵𝑭𝑶𝑹𝑴𝑨𝑻𝑰𝑶𝑵\e[30m ]\e[1m     \e[m"
+echo -e   " \e[$back_text                   \e[30m[\e[$box 𝑺𝑬𝑹𝑽𝑬𝑹 𝑰𝑵𝑭𝑶𝑹𝑴𝑨𝑻𝑰𝑶𝑵\e[30m ]\e[1m  \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e "  \e[$text Cpu Model            :$cname"
 echo -e "  \e[$text Number Of Core       : $cores"
@@ -140,12 +140,12 @@ echo -e   " \e[$line════════════════════
 echo -e " \e[$line╒════════════════════════════════════════════════════════════╕\e[m"
 echo -e  " \e[$back_text                       LIST ACCOUNTS "
 echo -e " \e[$line╘════════════════════════════════════════════════════════════╛\e[m"
-echo -e  "  \e[$numberSsh/Ovpn   :\e[m \e[$below $total_sshACCOUNT\e[m  \e[$numberVlessTcp    :\e[m \e[$below $totaltcp  ACCOUNT "              
-echo -e  "  \e[$numberVmess      :\e[m \e[$below $totalvm  ACCOUNT\e[m   \e[$numberTrojan     :\e[m \e[$below $totaltr  ACCOUNT "           
-echo -e  "  \e[$numberVless      :\e[m \e[$below $totalvl  ACCOUNT\e[m   \e[$numberTrojan-GO  :\e[m \e[$below $totalgo  ACCOUNT "
+echo -e  "  \e[$number Ssh/Ovpn   :\e[m \e[$below $total_ssh ACCOUNT\e[m  \e[$numberVlessTcp    :\e[m \e[$below $totaltcp  ACCOUNT\e[m              
+echo -e  "  \e[$number Vmess      :\e[m \e[$below $totalvm  ACCOUNT\e[m   \e[$numberTrojan     :\e[m \e[$below $totaltr  ACCOUNT\e[m           
+echo -e  "  \e[$number Vless      :\e[m \e[$below $totalvl  ACCOUNT\e[m   \e[$numberTrojan-GO  :\e[m \e[$below $totalgo  ACCOUNT\e[m
 echo -e " \e[$line╘════════════════════════════════════════════════════════════╛\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e   " \e[$back_text                        \e[30m[\e[$box 𝑴𝑨𝑰𝑵 𝑴𝑬𝑵𝑼\e[30m ]\e[1m              \e[m"
+echo -e   " \e[$back_text                        \e[30m[\e[$box 𝑴𝑨𝑰𝑵 𝑴𝑬𝑵𝑼\e[30m ]\e[1m             \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   "  \e[$number [•1]\e[m \e[$below XRAY VMESS & VLESS\e[m      \e[$number [•6]\e[m \e[$below MENU THEMES\e[m"
 echo -e   "  \e[$number [•2]\e[m \e[$below TROJAN XRAY & GO\e[m        \e[$number [•7]\e[m \e[$below CLEAR LOG VPS\e[m"

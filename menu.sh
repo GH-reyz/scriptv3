@@ -140,9 +140,9 @@ echo -e   " \e[$line════════════════════
 echo -e " \e[$line╒════════════════════════════════════════════════════════════╕\e[m"
 echo -e  " \e[$back_text                       LIST ACCOUNTS "
 echo -e " \e[$line╘════════════════════════════════════════════════════════════╛\e[m"
-echo -e  "  \e[$number Ssh/Ovpn   :\e[m \e[$below $total_ssh ACCOUNT\e[m  \e[$numberVlessTcp    :\e[m \e[$below $totaltcp  ACCOUNT\e[m              
-echo -e  "  \e[$number Vmess      :\e[m \e[$below $totalvm  ACCOUNT\e[m   \e[$numberTrojan     :\e[m \e[$below $totaltr  ACCOUNT\e[m           
-echo -e  "  \e[$number Vless      :\e[m \e[$below $totalvl  ACCOUNT\e[m   \e[$numberTrojan-GO  :\e[m \e[$below $totalgo  ACCOUNT\e[m
+echo -e  "  \e[$number Ssh/Ovpn   : \e[m \e[$below $total_ssh ACCOUNT\e[m  \e[$numberVlessTcp    :\e[m \e[$below $totaltcp  ACCOUNT\e[m"              
+echo -e  "  \e[$number Vmess      : \e[m \e[$below $totalvm  ACCOUNT\e[m   \e[$numberTrojan     :\e[m \e[$below $totaltr  ACCOUNT\e[m"         
+echo -e  "  \e[$number Vless      : \e[m \e[$below $totalvl  ACCOUNT\e[m   \e[$numberTrojan-GO  :\e[m \e[$below $totalgo  ACCOUNT\e[m"
 echo -e " \e[$line╘════════════════════════════════════════════════════════════╛\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box 𝑴𝑨𝑰𝑵 𝑴𝑬𝑵𝑼\e[30m ]\e[1m             \e[m"

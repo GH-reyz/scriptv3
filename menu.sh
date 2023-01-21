@@ -111,9 +111,9 @@ ascii=$(cat /usr/bin/test)
 clear
 echo -e "\e[$banner_colour"
 figlet -f $ascii "$banner"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e   " \e[$back_text                    \e[30m[\e[$box SERVER INFORMATION\e[30m ]\e[1m                       \e[m"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e "  \e[$text Cpu Model            :$cname"
 echo -e "  \e[$text Number Of Core       : $cores"
 echo -e "  \e[$text Cpu Frequency        :$freq MHz"
@@ -131,30 +131,30 @@ echo -e "  \e[$text Script Version       : SC (V3)"
 echo -e "  \e[$text Order ID             : $oid"
 echo -e "  \e[$text Certificate Status   :\e[1;31m Expired in $certifacate days"
 echo -e "  \e[$text Provided By          : $creditt"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e   "  \e[0;32m Traffic\e[0m       \e[0;37mToday     Yesterday      Month   "
 echo -e   "  \e[0;32m Download\e[0m      $dtoday    $dyest       $dmon   \e[0m"
 echo -e   "  \e[0;32m Upload\e[0m        $utoday    $uyest       $umon   \e[0m"
 echo -e   "  \e[0;32m Total\e[0m       \033[0;36m  $ttoday    $tyest       $tmon  \e[0m "
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e   " \e[$back_text                      \e[30m[\e[$box LIST ACCOUNTS\e[30m ]\e[1m                          \e[m"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e  "  \e[$number Ssh/Ovpn  :\e[m \e[$below $total_ssh Account\e[m      \e[$number VlessTcp  :\e[m \e[$below $totaltcp Account\e[m"
 echo -e  "  \e[$number Vmess     :\e[m \e[$below $totalvm Account  \e[m     \e[$number Trojan    :\e[m \e[$below $totaltr Account\e[m"
 echo -e  "  \e[$number Vless     :\e[m \e[$below $totalvl Account  \e[m     \e[$number Trojan-GO :\e[m \e[$below $totalgo Account\e[m"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                            \e[m"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
-echo -e   "  \e[$number [�1]\e[m \e[$below Xray Vmess & Vless\e[m      \e[$number [�6]\e[m \e[$below Menu Script Themes\e[m"
-echo -e   "  \e[$number [�2]\e[m \e[$below Trojan Xray & Go\e[m        \e[$number [�7]\e[m \e[$below Clear Log Vps\e[m"
-echo -e   "  \e[$number [�3]\e[m \e[$below Openssh & Openvpn\e[m       \e[$number [�8]\e[m \e[$below Change Port Script\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
+echo -e   "  \e[$number [�1]\e[m \e[$below Openssh & Openvpn \e[m      \e[$number [�6]\e[m \e[$below Menu Script Themes\e[m"
+echo -e   "  \e[$number [�2]\e[m \e[$below Xray Vmess & Vless \e[m     \e[$number [�7]\e[m \e[$below Clear Log Vps\e[m"
+echo -e   "  \e[$number [�3]\e[m \e[$below Trojan Xray & Go\e[m        \e[$number [�8]\e[m \e[$below Change Port Script\e[m"
 echo -e   "  \e[$number [�4]\e[m \e[$below System Menu\e[m             \e[$number [�9]\e[m \e[$below Check Running Script\e[m"
 echo -e   "  \e[$number [�5]\e[m \e[$below Info All Port\e[m           \e[$number [�10]\e[m\e[$below REBOOT Vps\e[m"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
-echo -e   "  \e[$number Client Name   :\e[m \e[$below $username\e[m"
-echo -e   "  \e[$number Script Status :\e[m \e[$below $exp\e[m $sts"
-echo -e   "  \e[$number AutoScript By :\e[m \e[$below @GHReyz"
-echo -e   " \e[$line═════════════════════════════════════════════════════════════════\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
+echo -e   "  \e[$number│ Client Name   :\e[m \e[$below $username                                │\e[m"
+echo -e   "  \e[$number│ Script Status :\e[m \e[$below $exp\e[m $sts                            │\e[m"
+echo -e   "  \e[$number│ AutoScript By :\e[m \e[$below @GHReyz                                  │\e[m"
+echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e   ""
 echo -e   "  \e[$below [Ctrl + C] For exit from main menu\e[m"
 echo -e   "\e[$below "
@@ -162,13 +162,13 @@ read -p   "   Select From Options [1-12 or x] :  " menu
 echo -e   ""
 case $menu in
 1)
+ssh
+;;
+2
 xraay
 ;;
-2)
-trojaan
-;;
 3)
-ssh
+trojaan
 ;;
 4)
 system

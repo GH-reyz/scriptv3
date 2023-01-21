@@ -167,13 +167,13 @@ read -p   "   Select From Options [1-12 or x] :  " menu
 echo -e   ""
 case $menu in
 1)
-ssh
-;;
-2)
 xraay
 ;;
-3)
+2)
 trojaan
+;;
+3)
+ssh
 ;;
 4)
 system

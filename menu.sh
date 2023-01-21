@@ -138,8 +138,8 @@ echo -e   "  \e[0;32m Upload\e[0m        $utoday    $uyest       $umon   \e[0m"
 echo -e   "  \e[0;32m Total\e[0m       \033[0;36m  $ttoday    $tyest       $tmon  \e[0m "
 echo -e   " \e[$line─────────────────────────────────────────────────────────────────\e[m"
 echo -e   " \e[$line         ┌────────────────────────────────────────────┐\e[m"
-echo -e   "                                     LIST ACCOUNTS\e                         \e[m"
-echo -e   "                     ─────────────────────────────────────────" | lolcat
+echo -e   "                                LIST ACCOUNTS\e                         \e[m"
+echo -e   "  ─────────────────────────────────────────" | lolcat
 echo -e  "                       SSH/OVPN  :\e[m \e[$below $total_ssh Account "
 echo -e  "                       VLESSTCP  :\e[m \e[$below $totaltcp Account "
 echo -e  "                       VMESS     :\e[m \e[$below $totalvm Account  "  

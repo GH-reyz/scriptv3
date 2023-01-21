@@ -141,10 +141,10 @@ echo -e   " \e[$line              ┌──────────────�
 echo -e   "                          LIST ACCOUNTS\e                         \e[m"
 echo -e  "                ───────────────────────────────────  " | lolcat
 echo -e  "                      SSH/OVPN  :\e[m \e[$text $total_ssh Account "
-echo -e  "                      VLESSTCP  :\e[m \e[$text $totaltcp Account "
 echo -e  "                      VMESS     :\e[m \e[$text $totalvm Account  "  
-echo -e  "                      TROJAN    :\e[m \e[$text $totaltr Account "
 echo -e  "                      VLESS     :\e[m \e[$text $totalvl Account "
+echo -e  "                      VLESSTCP  :\e[m \e[$text $totaltcp Account "
+echo -e  "                      TROJAN    :\e[m \e[$text $totaltr Account "
 echo -e  "                      TROJAN-GO :\e[m \e[$text $totalgo Account "
 echo -e   " \e[$line              └───────────────────────────────────┘\e[m"
 echo -e   " \e[$line─────────────────────────────────────────────────────────────\e[m"

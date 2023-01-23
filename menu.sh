@@ -73,7 +73,7 @@ clear
 
 # STATUS EXPIRED ACTIVE
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[4$below" && Font_color_suffix="\033[0m"
-Info="${Green_font_prefix}(✓)${Font_color_suffix}"
+Info="${Green_font_prefix}(Active)${Font_color_suffix}"
 Error="${Green_font_prefix}${Font_color_suffix}${Red_font_prefix}[EXPIRED]${Font_color_suffix}"
 
 today=`date -d "0 days" +"%Y-%m-%d"`
@@ -130,7 +130,7 @@ echo -e   " \e[$line┌───────────────────
 echo -e   "  \e[0;32m Traffic\e[0m       \e[0;37mToday     Yesterday      Month   "
 echo -e   "  \e[0;32m Download\e[0m      $dtoday    $dyest       $dmon   \e[0m"
 echo -e   "  \e[0;32m Upload\e[0m        $utoday    $uyest       $umon   \e[0m"
-echo -e   "  \e[0;32m Total\e[0m       \033[0;36m  $ttoday    $tyest       $tmon  \e[0m "
+echo -e   "  \e[0;32m Total\e[0m       \033[0;36m  $ttoday   $tyest       $tmon  \e[0m "
 echo -e   " \e[$line└─────────────────────────────────────────────────┘\e[m"
 echo -e   " \e[$line      ┌───────────────────────────────────┐\e[m"
 echo -e   "                   LIST ACCOUNTS\e                         \e[m"

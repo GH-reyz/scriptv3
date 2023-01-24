@@ -170,16 +170,16 @@ echo -e "Date        : $harini"
 echo -e "Time        : $jam ( WIB )"
 echo "-----------------------------------------------------------"
 echo -e "\e[1;32mSTATUS SCRIPT :\e[0m"
-echo -e "\e[0;32mUser        :\e[0m $username"
-echo -e "\e[0;32mOrder ID    :\e[0m $oid"
-echo -e "\e[0;32mExpired     :\e[0m $exp"
+echo -e "\e[0;34mUser        :\e[0m $username"
+echo -e "\e[0;34mOrder ID    :\e[0m $oid"
+echo -e "\e[0;34mExpired     :\e[0m $exp"
 echo "-----------------------------------------------------------"
 echo -e ""
 echo -e "              \e[0;32m[\e[1;36mSYSTEM STATUS INFORMATION\e[0;32m]\e[0m"
-echo -e "             \e[0;32m=============================\e[0m"
+echo -e "             \e[0;34m=============================\e[0m"
 echo -e ""
-echo -e "\e[1;35mSTATUS SSH & OPEN VPN:\e[0m"
-echo -e "\e[0;32m-----------------------\e[0m"
+echo -e "\e[1;33mSTATUS SSH & OPEN VPN:\e[0m"
+echo -e "\e[0;34m-----------------------\e[0m"
 status="$(systemctl show ssh.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
 if [ "${status_text}" == "active" ]
@@ -269,8 +269,8 @@ else
 echo -e " OHP-OpenVPN             : "$red"not running (Error)"$NC" "
 fi
 echo -e ""
-echo -e "\e[1;35mSTATUS XRAY:\e[0m"
-echo -e "\e[0;32m-------------\e[0m"
+echo -e "\e[1;33mSTATUS XRAY:\e[0m"
+echo -e "\e[0;34m-------------\e[0m"
 status="$(systemctl show xray.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
 if [ "${status_text}" == "active" ]
@@ -312,8 +312,8 @@ else
 echo -e " Xray Vless Tcp Xtls     : "$red"not running (Error)"$NC" "
 fi
 echo -e ""
-echo -e "\e[1;35mSTATUS TROJAN GO:\e[0m"
-echo -e "\e[0;32m-----------------\e[0m"
+echo -e "\e[1;33mSTATUS TROJAN GO:\e[0m"
+echo -e "\e[0;34m-----------------\e[0m"
 status="$(systemctl show xray.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
 if [ "${status_text}" == "active" ]
@@ -331,8 +331,8 @@ else
 echo -e " Trojan Go               : "$red"not running (Error)"$NC" "
 fi
 echo -e ""
-echo -e "\e[1;35mSTATUS NGIX & SQUID:\e[0m"
-echo -e "\e[0;32m--------------------\e[0m"
+echo -e "\e[1;33mSTATUS NGIX & SQUID:\e[0m"
+echo -e "\e[0;34m--------------------\e[0m"
 status="$(systemctl show nginx.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
 if [ "${status_text}" == "active" ]
@@ -349,7 +349,7 @@ echo -e " Squid                   : "$green"running"$NC" ✓"
 else
 echo -e " Squid                   : "$red"not running (Error)"$NC" "
 fi
-echo -e "\e[0;32m-----------------------------------------------------------\e[0m"
+echo -e "\e[0;34m-----------------------------------------------------------\e[0m"
 echo -e ""
 echo -e "${green}JIKA TERDAPAT NOT RUNNING, PLEASE REPORT TO ADMIN FOR FIX$NC"
 echo -e "${green}Report to Reyz @GHReyz1$NC"

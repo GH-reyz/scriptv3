@@ -71,4 +71,5 @@ If you want to restore data, please enter the link above
 Thank You For Using Our Services"
 rm -rf /root/backup
 rm -r /root/$IP-$date.zip
-echo ""
+echo "Done"
+echo "Please Check Your Email"

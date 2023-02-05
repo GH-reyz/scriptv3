@@ -41,10 +41,7 @@ echo Start Backup
 clear
 cp /etc/passwd backup/
 cp /etc/group backup/
-cp /etc/shadow backup/
 cp /etc/gshadow backup/
-cp -r /etc/wireguard backup/wireguard
-cp /etc/shadowsocks-libev/akun.conf backup/ss.conf
 cp -r /var/lib/premium-script/ backup/premium-script
 cp -r /usr/local/etc/xray backup/xray
 cp -r /etc/trojan-go backup/trojan-go

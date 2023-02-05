@@ -58,7 +58,6 @@ url=$(rclone link dr:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
 echo "VPS Data Backup By ReyzVPN"
-echo "Telegram : https://t.me/GHReyz /@GHReyz"
 echo ""
 echo -e "Please Copy Link Below & Save In Notepad
 
@@ -73,4 +72,3 @@ rm -rf /root/backup
 rm -r /root/$IP-$date.zip
 echo "Done"
 echo "Please Check Your Email"
-

@@ -16,7 +16,6 @@ VALIDITY () {
     echo -e "\e[31mPlease renew your ipvps first\e[0m"
     exit 0
 fi
-}
 IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/registerv3/main/ip.conf | awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
@@ -31,17 +30,22 @@ clear
 IP=$(wget -qO- icanhazip.com);
 date=$(date +"%Y-%m-%d")
 clear
-echo " Enter Your Email To Receive Message"
-read -rp " Email: " -e email
+echo " VPS Data Backup"
 sleep 1
-echo Directory Created
+echo " Directory Created"
 mkdir /root/backup
 sleep 1
-echo Start Backup
+echo " VPS Data Backup Start Now . . ."
+clear
+echo " Please Wait , Backup In Process Now . . ."
+sleep 1
 clear
 cp /etc/passwd backup/
 cp /etc/group backup/
+cp /etc/shadow backup/
 cp /etc/gshadow backup/
+cp -r /etc/wireguard backup/wireguard
+cp /etc/shadowsocks-libev/akun.conf backup/ss.conf
 cp -r /var/lib/premium-script/ backup/premium-script
 cp -r /usr/local/etc/xray backup/xray
 cp -r /etc/trojan-go backup/trojan-go
@@ -53,16 +57,18 @@ rclone copy /root/$IP-$date.zip dr:backup/
 url=$(rclone link dr:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-echo -e "The following is a link to your vps data backup file.
+echo "VPS Data Backup By PAKYAVPN"
+echo "Telegram : https://t.me/GHReyz /@GHReyz"
+echo ""
+echo -e "Please Copy Link Below & Save In Notepad
 
-Your VPS IP $IP
+Your VPS IP ( $IP )
 
 $link
 
-If you want to restore data, please enter the link above.
+If you want to restore data, please enter the link above
 
-Thank You For Using Our Services" | mail -s "Backup Data" $email
+Thank You For Using Our Services"
 rm -rf /root/backup
 rm -r /root/$IP-$date.zip
-echo "Done"
-echo "Please Check Your Email"
+echo ""

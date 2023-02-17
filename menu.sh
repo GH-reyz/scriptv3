@@ -198,6 +198,9 @@ reboot
 5)
 info
 ;;
+99)
+addv3
+;;
 x)
 clear
 exit

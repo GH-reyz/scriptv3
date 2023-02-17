@@ -264,6 +264,7 @@ cd /usr/bin
 wget -O add-host "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/system/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/system/about.sh"
 wget -O menu "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/menu.sh"
+wget -O addv3 "https://raw.githubusercontent.com/GH-reyz/scriptv3/main/addv3.sh"
 wget -O add-ssh "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/add-user/add-ssh.sh"
 wget -O trial "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/add-user/trial.sh"
 wget -O del-ssh "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/delete-user/del-ssh.sh"
@@ -307,6 +308,7 @@ wget -O system "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/menu/
 wget -O themes "https://raw.githubusercontent.com/${GitUser}/scriptv3/main/menu/themes.sh"
 chmod +x add-host
 chmod +x menu
+chmod +x addv3
 chmod +x add-ssh
 chmod +x trial
 chmod +x del-ssh

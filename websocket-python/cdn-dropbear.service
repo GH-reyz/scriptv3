@@ -1,7 +1,7 @@
 # /usr/local/bin/cdn-dropbear
 [Unit]
-Description=Python WS-Dropbear By GH
-Documentation=https://GH
+Description=Python WS-Dropbear By Virtual
+Documentation=https://virtual.xyz
 After=network.target nss-lookup.target
 
 [Service]

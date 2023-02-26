@@ -154,9 +154,9 @@ echo -e   "  \e[$number [�1]\e[m \e[$below Openssh & Openvpn\e[m       \e[$num
 echo -e   "  \e[$number [�2]\e[m \e[$below Xray Vmess & Vless\e[m      \e[$number [�7]\e[m \e[$below Clear Log Vps\e[m"
 echo -e   "  \e[$number [�3]\e[m \e[$below Trojan Xray & Go\e[m        \e[$number [�8]\e[m \e[$below Change Port \e[m"
 echo -e   "  \e[$number [�4]\e[m \e[$below System Menu\e[m             \e[$number [�9]\e[m \e[$below Check Running \e[m"
-echo -e   "  \e[$number [�5]\e[m \e[$below Info All Port\e[m           \e[$number [�10]\e[m\e[$below REBOOT Vps\e[m"
+echo -e   "  \e[$number [�5]\e[m \e[$below Info All Port\e[m           \e[$number [�10]\e[m\e[$below Reboot Vps\e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
-echo -e   "  \e[$number [�11]\e[m \e[$below Add IP ( Admin )\e[m"
+echo -e   "  \e[$number [�0]\e[m \e[$below Add IP(Owner)\e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
 echo -e   "  \e[$number Client Name   :\e[m \e[$below $username\e[m"
 echo -e   "  \e[$number Script Status :\e[m \e[$below $exp\e[m $sts "
@@ -195,7 +195,7 @@ check-sc
 10)
 reboot
 ;;
-11)
+0)
 addv3
 ;;
 5)

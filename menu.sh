@@ -156,7 +156,7 @@ echo -e   "  \e[$number [�3]\e[m \e[$below Trojan Xray & Go\e[m        \e[$num
 echo -e   "  \e[$number [�4]\e[m \e[$below System Menu\e[m             \e[$number [�9]\e[m \e[$below Check Running \e[m"
 echo -e   "  \e[$number [�5]\e[m \e[$below Info All Port\e[m           \e[$number [�10]\e[m\e[$below Reboot Vps\e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
-echo -e   "  \e[$number [�0]\e[m \e[$below Add IP(Owner)\e[m"
+echo -e   "  \e[$number [�0]\e[m \e[$below Add IP (Owner)\e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
 echo -e   "  \e[$number Client Name   :\e[m \e[$below $username\e[m"
 echo -e   "  \e[$number Script Status :\e[m \e[$below $exp\e[m $sts "

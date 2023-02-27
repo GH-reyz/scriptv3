@@ -51,7 +51,7 @@ total2=$(grep -c -E "^#vls " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  VLESS TCP XTLS
 total3=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
 MYIP=$(wget -qO- ifconfig.me/ip);
-source /var/lib/premium-script/ipvps.conf
+source /var/lib/premium-script/ip.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /usr/local/etc/xray/domain)
 else
@@ -98,7 +98,7 @@ sed -i '/#xray-vmess-nontls$/a\#vms '"$user $exp $harini $uuid"'\
 cat>/usr/local/etc/xray/$user-tls.json<<EOF
       {
       "v": "2",
-      "ps": "${user}",
+      "ps": "reyzvpn@${user}",
       "add": "${sts}${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -114,7 +114,7 @@ EOF
 cat>/usr/local/etc/xray/$user-none.json<<EOF
       {
       "v": "2",
-      "ps": "${user}",
+      "ps": "reyzvpn@${user}",
       "add": "${sts}${domain}",
       "port": "${none}",
       "id": "${uuid}",
@@ -141,73 +141,73 @@ external-controller: 127.0.0.1:9090
 proxies:
   - {name: $user, server: ${sts}${domain}, port: $none, type: vmess, uuid: $uuid, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: $patchnontls, ws-headers: {Host: $sni}}
 proxy-groups:
-  - name: 🚀 节点选择
+  - name: ðŸš€ èŠ‚ç‚¹é€‰æ‹©
     type: select
     proxies:
-      - ♻️ 自动选择
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - DIRECT
       - $user
-  - name: ♻️ 自动选择
+  - name: â™»ï¸ è‡ªåŠ¨é€‰æ‹©
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
       - $user
-  - name: 🌍 国外媒体
+  - name: ðŸŒ å›½å¤–åª’ä½“
     type: select
     proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: 📲 电报信息
+  - name: ðŸ“² ç”µæŠ¥ä¿¡æ¯
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: Ⓜ️ 微软服务
+  - name: â“‚ï¸ å¾®è½¯æœåŠ¡
     type: select
     proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
       - $user
-  - name: 🍎 苹果服务
+  - name: ðŸŽ è‹¹æžœæœåŠ¡
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: 📢 谷歌FCM
+  - name: ðŸ“¢ è°·æ­ŒFCM
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-      - ♻️ 自动选择
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - $user
-  - name: 🎯 全球直连
+  - name: ðŸŽ¯ å…¨çƒç›´è¿ž
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
-  - name: 🛑 全球拦截
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
+  - name: ðŸ›‘ å…¨çƒæ‹¦æˆª
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: 🍃 应用净化
+  - name: ðŸƒ åº”ç”¨å‡€åŒ–
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: 🐟 漏网之鱼
+  - name: ðŸŸ æ¼ç½‘ä¹‹é±¼
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-      - ♻️ 自动选择
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - $user
 END
 # masukkan payloadnya ke dalam config yaml
@@ -224,7 +224,7 @@ systemctl restart xray@none
 service cron restart
 clear
 echo -e ""
-echo -e "\e[$line═════════[XRAY VMESS WS]═════════\e[m"
+echo -e "\e[$line════════[XRAY VMESS WS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "IP/Host        : $MYIP"
@@ -239,7 +239,7 @@ echo -e "AllowInsecure  : True/Allow"
 echo -e "Support Yaml   : YES"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -295,7 +295,7 @@ sed -i '/#xray-vmess-nontls$/a\#vms '"$user $exp $harini $uuid"'\
 cat>/usr/local/etc/xray/$user-tls.json<<EOF
       {
       "v": "2",
-      "ps": "${user}",
+      "ps": "reyzvpn@${user}",
       "add": "${sts}${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -311,7 +311,7 @@ EOF
 cat>/usr/local/etc/xray/$user-none.json<<EOF
       {
       "v": "2",
-      "ps": "${user}",
+      "ps": "reyzvpn@${user}",
       "add": "${sts}${domain}",
       "port": "${none}",
       "id": "${uuid}",
@@ -338,73 +338,73 @@ external-controller: 127.0.0.1:9090
 proxies:
   - {name: $user, server: ${sts}${domain}, port: $none, type: vmess, uuid: $uuid, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: $patchnontls, ws-headers: {Host: $sni}}
 proxy-groups:
-  - name: 🚀 节点选择
+  - name: ðŸš€ èŠ‚ç‚¹é€‰æ‹©
     type: select
     proxies:
-      - ♻️ 自动选择
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - DIRECT
       - $user
-  - name: ♻️ 自动选择
+  - name: â™»ï¸ è‡ªåŠ¨é€‰æ‹©
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
       - $user
-  - name: 🌍 国外媒体
+  - name: ðŸŒ å›½å¤–åª’ä½“
     type: select
     proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: 📲 电报信息
+  - name: ðŸ“² ç”µæŠ¥ä¿¡æ¯
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: Ⓜ️ 微软服务
+  - name: â“‚ï¸ å¾®è½¯æœåŠ¡
     type: select
     proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
       - $user
-  - name: 🍎 苹果服务
+  - name: ðŸŽ è‹¹æžœæœåŠ¡
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: 📢 谷歌FCM
+  - name: ðŸ“¢ è°·æ­ŒFCM
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-      - ♻️ 自动选择
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - $user
-  - name: 🎯 全球直连
+  - name: ðŸŽ¯ å…¨çƒç›´è¿ž
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
-  - name: 🛑 全球拦截
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
+  - name: ðŸ›‘ å…¨çƒæ‹¦æˆª
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: 🍃 应用净化
+  - name: ðŸƒ åº”ç”¨å‡€åŒ–
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: 🐟 漏网之鱼
+  - name: ðŸŸ æ¼ç½‘ä¹‹é±¼
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-      - ♻️ 自动选择
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - $user
 END
 # masukkan payloadnya ke dalam config yaml
@@ -421,7 +421,7 @@ systemctl restart xray@none
 service cron restart
 clear
 echo -e ""
-echo -e "\e[$line══════[TRIAL XRAY VMESS WS]══════\e[m"
+echo -e "\e[$line════════[TRIAL XRAY VMESS WS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "IP/Host        : $MYIP"
@@ -436,7 +436,7 @@ echo -e "AllowInsecure  : True/Allow"
 echo -e "Support Yaml   : YES"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -582,7 +582,7 @@ uuid=$(grep -E "^#vms " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 5 | se
 cat>/usr/local/etc/xray/$user-tls.json<<EOF
       {
       "v": "2",
-      "ps": "${user}",
+      "ps": "reyzvpn@${user}",
       "add": "${sts}${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -598,7 +598,7 @@ EOF
 cat>/usr/local/etc/xray/$user-none.json<<EOF
       {
       "v": "2",
-      "ps": "${user}",
+      "ps": "reyzvpn@${user}",
       "add": "${sts}${domain}",
       "port": "${none}",
       "id": "${uuid}",
@@ -625,73 +625,73 @@ external-controller: 127.0.0.1:9090
 proxies:
   - {name: $user, server: ${sts}${domain}, port: $none, type: vmess, uuid: $uuid, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: $patchnontls, ws-headers: {Host: bug.com}}
 proxy-groups:
-  - name: 🚀 节点选择
+  - name: ðŸš€ èŠ‚ç‚¹é€‰æ‹©
     type: select
     proxies:
-      - ♻️ 自动选择
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - DIRECT
       - $user
-  - name: ♻️ 自动选择
+  - name: â™»ï¸ è‡ªåŠ¨é€‰æ‹©
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
       - $user
-  - name: 🌍 国外媒体
+  - name: ðŸŒ å›½å¤–åª’ä½“
     type: select
     proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: 📲 电报信息
+  - name: ðŸ“² ç”µæŠ¥ä¿¡æ¯
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: Ⓜ️ 微软服务
+  - name: â“‚ï¸ å¾®è½¯æœåŠ¡
     type: select
     proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
       - $user
-  - name: 🍎 苹果服务
+  - name: ðŸŽ è‹¹æžœæœåŠ¡
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
       - $user
-  - name: 📢 谷歌FCM
+  - name: ðŸ“¢ è°·æ­ŒFCM
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-      - ♻️ 自动选择
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - $user
-  - name: 🎯 全球直连
+  - name: ðŸŽ¯ å…¨çƒç›´è¿ž
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
-  - name: 🛑 全球拦截
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
+  - name: ðŸ›‘ å…¨çƒæ‹¦æˆª
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: 🍃 应用净化
+  - name: ðŸƒ åº”ç”¨å‡€åŒ–
     type: select
     proxies:
       - REJECT
       - DIRECT
-  - name: 🐟 漏网之鱼
+  - name: ðŸŸ æ¼ç½‘ä¹‹é±¼
     type: select
     proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-      - ♻️ 自动选择
+      - ðŸš€ èŠ‚ç‚¹é€‰æ‹©
+      - ðŸŽ¯ å…¨çƒç›´è¿ž
+      - â™»ï¸ è‡ªåŠ¨é€‰æ‹©
       - $user
 END
 # masukkan payloadnya ke dalam config yaml
@@ -705,7 +705,7 @@ vmesslink1="vmess://$(base64 -w 0 /usr/local/etc/xray/$user-tls.json)"
 vmesslink2="vmess://$(base64 -w 0 /usr/local/etc/xray/$user-none.json)"
 clear
 echo -e ""
-echo -e "\e[$line═════════[XRAY VMESS WS]═════════\e[m"
+echo -e "\e[$line════════[XRAY VMESS WS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "IP/Host        : $MYIP"
@@ -720,7 +720,7 @@ echo -e "AllowInsecure  : True/Allow"
 echo -e "Support Yaml   : YES"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -817,13 +817,13 @@ sed -i '/#xray-vless-tls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/none.json
-vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#reyzvpn@${user}"
 systemctl restart xray
 systemctl restart xray@none
 clear
 echo -e ""
-echo -e "\e[$line═════════[XRAY VLESS WS]═════════\e[m"
+echo -e "\e[$line════════[XRAY VLESS WS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "IP/Host          : $MYIP"
@@ -837,7 +837,7 @@ echo -e "Path None Tls    : $patchnontls"
 echo -e "AllowInsecure    : True/Allow"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -864,7 +864,7 @@ none="$(cat ~/log-install.txt | grep -w "Vless Ws None Tls" | cut -d: -f2|sed 's
 echo -e   "  \e[$line═══════════════════════════════════════════════════════\e[m"
 echo -e   "  \e[$back_text           \e[30m[\e[$box TRIAL USER XRAY VLESS WS TLS\e[30m ]\e[1m            \e[m"
 echo -e   "  \e[$line═══════════════════════════════════════════════════════\e[m"
-# Create Expried 
+# Create Expried
 masaaktif="1"
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
 
@@ -888,13 +888,13 @@ sed -i '/#xray-vless-tls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/none.json
-vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#reyzvpn@${user}"
 systemctl restart xray
 systemctl restart xray@none
 clear
 echo -e ""
-echo -e "\e[$line══════[TRIAL XRAY VLESS WS]══════\e[m"
+echo -e "\e[$line════════[TRIAL XRAY VLESS WS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "IP/Host          : $MYIP"
@@ -908,7 +908,7 @@ echo -e "Path None Tls    : $patchnontls"
 echo -e "AllowInsecure    : True/Allow"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -1045,11 +1045,11 @@ user=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | se
 harini=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#reyzvpn@${user}"
 clear
 echo -e ""
-echo -e "\e[$line═════════[XRAY VLESS WS]═════════\e[m"
+echo -e "\e[$line════════[XRAY VLESS WS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "IP/Host          : $MYIP"
@@ -1063,7 +1063,7 @@ echo -e "Path None Tls    : $patchnontls"
 echo -e "AllowInsecure    : True/Allow"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -1153,8 +1153,8 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 harini=`date -d "0 days" +"%Y-%m-%d"`
 sed -i '/#xray-vless-xtls$/a\#vxtls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'","level": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/config.json
-vlesslink1="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=$sni#${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=$sni#${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=$sni#reyzvpn@${user}"
 systemctl restart xray
 clear
 echo -e ""
@@ -1170,7 +1170,7 @@ echo -e "Flow           : Direct & Splice"
 echo -e "AllowInsecure  : True"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -1193,9 +1193,9 @@ echo -e "Script By $creditt"
 function menu14 () {
 clear
 xtls="$(cat ~/log-install.txt | grep -w "Vless Tcp Xtls" | cut -d: -f2|sed 's/ //g')"
-echo -e   "  \e[$line═══════════════════════════════════════════════════════\e[m"
+echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e   "  \e[$back_text            \e[30m[\e[$box TRIAL USER XRAY VLESS XTLS\e[30m ]\e[1m             \e[m"
-echo -e   "  \e[$line═══════════════════════════════════════════════════════\e[m"
+echo -e "\e[$line═════════════════════════════════\e[m"
 # Create Expried 
 masaaktif="1"
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
@@ -1216,12 +1216,12 @@ fi
 harini=`date -d "0 days" +"%Y-%m-%d"`
 sed -i '/#xray-vless-xtls$/a\#vxtls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'","level": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/config.json
-vlesslink1="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=$sni#${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=$sni#${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=$sni#reyzvpn@${user}"
 systemctl restart xray
 clear
 echo -e ""
-echo -e "\e[$line═════[TRIAL XRAY VLESS XTLS]═════\e[m"
+echo -e "\e[$line═══════[TRIAL XRAY VLESS XTLS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "Ip/Host        : ${MYIP}"
@@ -1233,7 +1233,7 @@ echo -e "Flow           : Direct & Splice"
 echo -e "AllowInsecure  : True"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -1366,8 +1366,8 @@ user=$(grep -E "^#vxtls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | 
 harini=$(grep -E "^#vxtls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#vxtls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^#vxtls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-vlesslink1="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=bug.com#${user}"
-vlesslink2="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=bug.com#${user}"
+vlesslink1="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=bug.com#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=bug.com#reyzvpn@${user}"
 clear
 echo -e ""
 echo -e "\e[$line════════[XRAY VLESS XTLS]════════\e[m"
@@ -1382,7 +1382,7 @@ echo -e "Flow             : Direct & Splice"
 echo -e "AllowInsecure    : True"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Pantang Larang $creditt Shop"
-echo -e "‼️Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
 echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
@@ -1444,6 +1444,7 @@ done
 # MENU XRAY VMESS & VLESS
 clear
 echo -e ""
+echo echo -e ""
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
 echo -e "   \e[$back_text   \e[30m═[\e[$box PANEL XRAY VMESS WEBSOCKET TLS\e[30m ]═   \e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"

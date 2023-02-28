@@ -1444,7 +1444,7 @@ done
 # MENU XRAY VMESS & VLESS
 clear
 echo -e ""
-echo echo -e ""
+echo -e ""
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
 echo -e "   \e[$back_text   \e[30m═[\e[$box PANEL XRAY VMESS WEBSOCKET TLS\e[30m ]═   \e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"

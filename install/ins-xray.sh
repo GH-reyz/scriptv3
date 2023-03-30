@@ -30,36 +30,6 @@ clear
 emailcf=$(cat /usr/local/etc/xray/email)
 domain=$(cat /root/domain)
 
-# ACME DOMAIN
-echo ""
-echo -e "   .-----------------------------------."
-echo -e "   |   \e[1;32mPlease select acme for domain\e[0m   |"
-echo -e "   '-----------------------------------'"
-echo -e "     \e[1;32m1)\e[0m ZeroSSL.com"
-echo -e "     \e[1;32m2)\e[0m BuyPass.com"
-echo -e "     \e[1;32m3)\e[0m Letsencrypt.org"
-echo -e "   ------------------------------------"
-read -p "   Please select numbers 1-3(Any Button Default Letsencrypt.org) : " acmee
-acme1=zerossl
-acme2=https://api.buypass.com/acme/directory
-acme3=letsencrypt
-if [[ $acmee == "1" ]]; then
-echo -e "ZeroSSL.com acme is used"
-acmeh=$acme1
-echo ""
-elif [[ $acmee == "2" ]]; then
-echo -e "BuyPass.com acme is used"
-acmeh=$acme2
-elif [[ $acmee == "3" ]]; then
-echo -e "Letsencrypt.org acme is used"
-acmeh=$acme3
-else
-echo -e "Default acme(Letsencrypt.org) is used"
-acmeh=$acme3
-clear
-fi
-clear
-
 apt install iptables iptables-persistent -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 apt install socat cron bash-completion ntpdate -y
@@ -94,20 +64,24 @@ unzip -q xray.zip && rm -rf xray.zip
 mv xray /usr/local/bin/xray
 chmod +x /usr/local/bin/xray
 
+# Installation Xray Core 2023
+mv /usr/local/bin/xray /usr/local/bin/xray.bak && wget -q -O /usr/local/bin/xray "https://raw.githubusercontent.com/vinstechmy/xray-core/main/XRAY/xray" && chmod 755 /usr/local/bin/xray
+
 # Make Folder XRay
 mkdir -p /var/log/xray/
 
-# Stop port 80
-sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
+# KILL PORT
+systemctl stop nginx
 
 # generate certificates
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
-/root/.acme.sh/acme.sh --server $acmeh \
-        --register-account  --accountemail $emailcf
-/root/.acme.sh/acme.sh --server $acmeh --issue -d $domain --standalone -k ec-256			   
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /usr/local/etc/xray/xray.crt --keypath /usr/local/etc/xray/xray.key --ecc
+systemctl restart nginx
 service squid start
 uuid1=$(cat /proc/sys/kernel/random/uuid)
 uuid2=$(cat /proc/sys/kernel/random/uuid)
@@ -142,12 +116,12 @@ cat> /usr/local/etc/xray/config.json << END
                         "xver": 1
                     },
                     {
-                        "path": "/xray-vmessws-tls",
+                        "path": "/reyzvpn-tls",
                         "dest": 1311,
                         "xver": 1
                     },
                     {
-                        "path": "/xray-vlessws-tls",
+                        "path": "/reyzvpn-tls",
                         "dest": 1312,
                         "xver": 1
                     }
@@ -214,7 +188,7 @@ cat> /usr/local/etc/xray/config.json << END
                 "security": "none",
                 "wsSettings": {
                     "acceptProxyProtocol": true,
-                    "path": "/xray-vmessws-tls"
+                    "path": "/reyzvpn-tls"
                 }
             }
         },
@@ -237,7 +211,7 @@ cat> /usr/local/etc/xray/config.json << END
                 "security": "none",
                 "wsSettings": {
                     "acceptProxyProtocol": true,
-                    "path": "/xray-vlessws-tls"
+                    "path": "/reyzvpn-tls"
                 }
             }
         }
@@ -337,7 +311,7 @@ cat> /usr/local/etc/xray/none.json << END
             "network": "ws",
             "security": "none",
             "wsSettings": {
-                "path": "/xray-vmessws-none-tls",
+                "path": "/reyzvpn-ntls",
                 "headers": {
                    "Host": ""
                  }
@@ -368,7 +342,7 @@ cat> /usr/local/etc/xray/none.json << END
             "network": "ws",
             "security": "none",
             "wsSettings": {
-            "path": "/xray-vlessws-none-tls",
+            "path": "/reyzvpn-ntls",
             "headers": {
                 "Host": ""
                }
@@ -545,4 +519,3 @@ chmod +x xraay
 cd
 rm -f ins-xray.sh
 mv /root/domain /usr/local/etc/xray/domain
-

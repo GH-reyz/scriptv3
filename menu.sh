@@ -29,7 +29,7 @@ totaltcp=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN
 totaltr=$(grep -c -E "^#trx " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN GO
-totalgo=$(grep -c -E "^### " "/etc/xray/akunxtrgrpc.conf")
+totalgo=$(grep -c -E "^### " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE OVPN SSH
 total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 red=='\e[0;31m'
@@ -145,7 +145,7 @@ echo -e  "              VMESS     :\e[m \e[$text $totalvm Account  "
 echo -e  "              VLESS     :\e[m \e[$text $totalvl Account "
 echo -e  "              VLESSTCP  :\e[m \e[$text $totaltcp Account "
 echo -e  "              TROJAN    :\e[m \e[$text $totaltr Account "
-echo -e  "              TROJAN-GO :\e[m \e[$text $totalgo Account "
+echo -e  "              TROJAN GR :\e[m \e[$text $totalgo Account "
 echo -e   " \e[$line      └───────────────────────────────────┘\e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
 echo -e   " \e[$back_text                    \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                  \e[m"

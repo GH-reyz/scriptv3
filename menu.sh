@@ -29,7 +29,7 @@ totaltcp=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN
 totaltr=$(grep -c -E "^#trx " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN GO
-totalgo=$(grep -c -E "^### " "/etc/trojan-go/akun.conf")
+totalgo=$(grep -c -E "^### " "/etc/xray/akunxtrgrpc.conf")
 # TOTAL ACC CREATE OVPN SSH
 total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 red=='\e[0;31m'
@@ -152,7 +152,7 @@ echo -e   " \e[$back_text                    \e[30m[\e[$box MAIN MENU\e[30m ]\e[
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
 echo -e   "  \e[$number [�1]\e[m \e[$below Openssh & Openvpn\e[m       \e[$number [�6]\e[m \e[$below Menu  Themes\e[m"
 echo -e   "  \e[$number [�2]\e[m \e[$below Xray Vmess & Vless\e[m      \e[$number [�7]\e[m \e[$below Clear Log Vps\e[m"
-echo -e   "  \e[$number [�3]\e[m \e[$below Trojan Xray & Go\e[m        \e[$number [�8]\e[m \e[$below Change Port \e[m"
+echo -e   "  \e[$number [�3]\e[m \e[$below Trojan TCP & Grpc Tls\e[m   \e[$number [�8]\e[m \e[$below Change Port \e[m"
 echo -e   "  \e[$number [�4]\e[m \e[$below System Menu\e[m             \e[$number [�9]\e[m \e[$below Check Running \e[m"
 echo -e   "  \e[$number [�5]\e[m \e[$below Info All Port\e[m           \e[$number [�10]\e[m\e[$below Reboot Vps\e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"

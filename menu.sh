@@ -29,7 +29,7 @@ totaltcp=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN
 totaltr=$(grep -c -E "^#trx " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN GO
-totalgo=$(grep -c -E "^### " "/usr/local/etc/xray/config.json")
+totalgo=$(grep -c -E "^### " "/usr/local/etc/xray/akunxtrgrpc.conf")
 # TOTAL ACC CREATE OVPN SSH
 total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 red=='\e[0;31m'

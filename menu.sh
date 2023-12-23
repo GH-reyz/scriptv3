@@ -33,18 +33,18 @@ totalgo=$(grep -c -E "^#trgrpc " "/usr/local/etc/xray/config.json")
 # TOTAL ACC CREATE OVPN SSH
 total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 red=='\e[0;31m'
-#Download/Upload today
+# Total BANDWIDTH
 dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
 utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
 ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')"
-#Download/Upload yesterday
+# Download/Upload yesterday
 dyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $2" "substr ($3, 1, 1)}')"
 uyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $5" "substr ($6, 1, 1)}')"
 tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
-#Download/Upload current month
-dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
-umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
-tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
+# Download/Upload current month
+dmon="$(vnstat -i eth0 -m | grep "$(date +"%b '%y")" | awk '{print $3" "substr ($4, 1, 1)}')"
+umon="$(vnstat -i eth0 -m | grep "$(date +"%b '%y")" | awk '{print $6" "substr ($7, 1, 1)}')"
+tmon="$(vnstat -i eth0 -m | grep "$(date +"%b '%y")" | awk '{print $9" "substr ($10, 1, 1)}')"
 cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*/} / ${corediilik:-1}))"
 cpu_usage+=" %"
@@ -113,7 +113,7 @@ clear
 echo -e "\e[$banner_colour"
 figlet -f $ascii "$banner"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
-echo -e   " \e[$back_text              \e[30m[\e[$box SERVER INFORMATION\e[30m ]\e[1m               \e[m"
+echo -e   " \e[$back_text            \e[30m[\e[$box • SERVER INFORMATION •\e[30m ]\e[1m             \e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
 echo -e "  \e[$text Cpu Model            :$cname"
 echo -e "  \e[$text Number Of Core       : $cores"
@@ -123,35 +123,25 @@ echo -e "  \e[$text Total Amount Of Ram  : $tram MB"
 echo -e "  \e[$text Used RAM             : $uram MB"
 echo -e "  \e[$text Free RAM             : $fram MB"
 echo -e "  \e[$text System Uptime        : $uptime"
-echo -e "  \e[$text Time Location        : $WKT"
 echo -e "  \e[$text Date Location        : $DATE"
 echo -e "  \e[$text Ip Vps/Address       : $IPVPS"
 echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text Telegram             : @GHReyz"
-echo -e "  \e[$text Script Version       : Multiport (V3)"
+echo -e "  \e[$text Script Version       : Script (V3)"
 echo -e "  \e[$text Order ID             : $oid"
 echo -e "  \e[$text Certificate Status   :\e[1;31m Expired in $certifacate days"
-echo -e "  \e[$text Daily Data Usage     :\e[m \e[$below$daily_usage${N}"
-echo -e "  \e[$text Monthly Data Usage   :\e[m \e[$below$monthly_usage${N}"
 echo -e "  \e[$text Provided By          : $creditt"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
-echo -e   "  \e[0;32m Traffic\e[0m       \e[0;37mToday     Yesterday      Month   "
-echo -e   "  \e[0;32m Download\e[0m      $dtoday    $dyest       $dmon   \e[0m"
-echo -e   "  \e[0;32m Upload\e[0m        $utoday    $uyest       $umon   \e[0m"
-echo -e   "  \e[0;32m Total\e[0m       \033[0;36m  $ttoday    $tyest       $tmon  \e[0m "
+echo -e   " \e[$back_text            \e[30m[\e[$box • TOTAL BANDWIDTH •\e[30m ]\e[1m                \e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
-echo -e   " \e[$line      ┌───────────────────────────────────┐\e[m"
-echo -e   "                   LIST ACCOUNTS\e                         \e[m"
-echo -e  "        ───────────────────────────────────  " | lolcat
-echo -e  "             SSH/OVPN   :\e[m \e[$text $total_ssh Account "
-echo -e  "             VMESS WS   :\e[m \e[$text $totalvm Account  "  
-echo -e  "             VLESS WS   :\e[m \e[$text $totalvl Account "
-echo -e  "             VLESS XTLS :\e[m \e[$text $totaltcp Account "
-echo -e  "             TROJAN TCP :\e[m \e[$text $totaltr Account "
-echo -e  "             TROJAN GRPC:\e[m \e[$text $totalgo Account "
-echo -e   " \e[$line      └───────────────────────────────────┘\e[m"
+echo -e "  »»»  Daily Usage         : $ttoday ${NC} «««"
+echo -e "  »»»  Yesterday Usage     : $tyest ${NC} «««"
+echo -e "  »»»  Monthly Usage       : $tmon ${NC}"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
-echo -e   " \e[$back_text                    \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                  \e[m"
+echo -e  "  \e[33mVmess   Vless   VlessTcp    Trojan   Trojan-GRPC"
+echo -e  " \e[33m   $totalvm       $totalvl         $totaltcp          $totaltr          $totalgo"
+echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
+echo -e   " \e[$back_text                  \e[30m[\e[$box • MAIN MENU •\e[30m ]\e[1m                \e[m"
 echo -e   " \e[$line───────────────────────────────────────────────────\e[m"
 echo -e   "  \e[$number [•1]\e[m \e[$below Openssh & Openvpn\e[m       \e[$number [•6]\e[m \e[$below Menu  Themes\e[m"
 echo -e   "  \e[$number [•2]\e[m \e[$below Xray Vmess & Vless\e[m      \e[$number [•7]\e[m \e[$below Clear Log Vps\e[m"
@@ -218,4 +208,5 @@ menu
 esac
 
  
+
 

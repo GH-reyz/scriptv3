@@ -817,10 +817,15 @@ sed -i '/#xray-vless-tls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/none.json
-vlesslink1="vless://${uuid}@${sts}${domain}:443?type=ws&encryption=none&security=tls&host=${domain}&path=/reyzvpn-tls&allowInsecure=1&sni=${sni}#reyzvpn${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:80?type=ws&encryption=none&security=none&host=${domain}&path=/reyzvpn-ntls#reyzvpn${user}"
-systemctl restart xray
-systemctl restart xray@none
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=${sts}${domain}&path=$patchtls&allowInsecure=1&sni=$sni#VLESS-TLS-${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?type=ws&encryption=none&security=none&host=$sni&path=$patchnontls#VLESS-NTLS-${user}"
+vlesslink3="vless://${uuid}@api.useinsider.com:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#ReyzVpn-DiGi-${user}"
+vlesslink4="vless://${uuid}@162.159.134.61:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#ReyzVPN-DIGI-BOSSTER-${user}"
+vlesslink5="vless://${uuid}@${domain}:$none?type=ws&encryption=none&security=none&host=${sts}m.pubgmobile.com&path=$patchnontls#ReyzVPN-UMOBILE-FUNZ-${user}"
+vlesslink6="vless://${uuid}@104.17.113.188:$none?type=ws&encryption=none&security=none&host=${sts}cdn.who.int.${domain}&path=$patchnontls#VLESS-NTLS-YES-${user}"
+vlesslink7="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=opensignal.com&path=$patchtls&allowInsecure=1&sni=opensignal.com$sni#ReyzVPN-Celcom-0BASIC-${user}"
+systemctl restart xray@vless
+systemctl restart xray@vnone
 clear
 echo -e ""
 echo -e "\e[$line════════[▫️XRAY VLESS WS▫️]════════\e[m"
@@ -849,6 +854,16 @@ echo -e "\e[$line═════════════════════
 echo -e "Link TLS         : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link None TLS    : ${vlesslink2}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link DIGI APN     : ${vlesslink3}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link DIGI-BOSSTER : ${vlesslink4}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link UMOBILE-FUNZ : ${vlesslink5}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link YES          : ${vlesslink6}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link SELCOM-0BASIC: ${vlesslink7}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Created   : $harini"
 echo -e "Expired   : $exp"
@@ -886,8 +901,13 @@ sed -i '/#xray-vless-tls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/none.json
-vlesslink1="vless://${uuid}@${sts}${domain}:443?type=ws&encryption=none&security=tls&host=${domain}&path=/reyzvpn-tls&allowInsecure=1&sni=${sni}#reyzvpn${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:80?type=ws&encryption=none&security=none&host=${domain}&path=/reyzvpn-ntls#reyzvpn${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=${sts}${domain}&path=$patchtls&allowInsecure=1&sni=$sni#VLESS-TLS-${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?type=ws&encryption=none&security=none&host=$sni&path=$patchnontls#VLESS-NTLS-${user}"
+vlesslink3="vless://${uuid}@api.useinsider.com:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#ReyzVpn-DiGi-${user}"
+vlesslink4="vless://${uuid}@162.159.134.61:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#ReyzVPN-DIGI-BOSSTER-${user}"
+vlesslink5="vless://${uuid}@${domain}:$none?type=ws&encryption=none&security=none&host=${sts}m.pubgmobile.com&path=$patchnontls#ReyzVPN-UMOBILE-FUNZ-${user}"
+vlesslink6="vless://${uuid}@104.17.113.188:$none?type=ws&encryption=none&security=none&host=${sts}cdn.who.int.${domain}&path=$patchnontls#VLESS-NTLS-YES-${user}"
+vlesslink7="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=opensignal.com&path=$patchtls&allowInsecure=1&sni=opensignal.com$sni#ReyzVPN-Celcom-0BASIC-${user}"
 systemctl restart xray
 systemctl restart xray@none
 clear
@@ -918,6 +938,16 @@ echo -e "\e[$line═════════════════════
 echo -e "Link TLS         : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link None TLS    : ${vlesslink2}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link DIGI APN     : ${vlesslink3}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link DIGI-BOSSTER : ${vlesslink4}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link UMOBILE-FUNZ : ${vlesslink5}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link YES          : ${vlesslink6}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link SELCOM-0BASIC: ${vlesslink7}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Created   : $harini"
 echo -e "Expired   : $exp"
@@ -1041,8 +1071,13 @@ user=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | se
 harini=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-vlesslink1="vless://${uuid}@${sts}${domain}:443?type=ws&encryption=none&security=tls&host=${domain}&path=/reyzvpn-tls&allowInsecure=1&sni=${sni}#reyzvpn${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:80?type=ws&encryption=none&security=none&host=${domain}&path=/reyzvpn-ntls#reyzvpn${user}"
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=${sts}${domain}&path=$patchtls&allowInsecure=1&sni=$sni#VLESS-TLS-${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?type=ws&encryption=none&security=none&host=$sni&path=$patchnontls#VLESS-NTLS-${user}"
+vlesslink3="vless://${uuid}@api.useinsider.com:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#ReyzVpn-DiGi-${user}"
+vlesslink4="vless://${uuid}@162.159.134.61:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#ReyzVPN-DIGI-BOSSTER-${user}"
+vlesslink5="vless://${uuid}@${domain}:$none?type=ws&encryption=none&security=none&host=${sts}m.pubgmobile.com&path=$patchnontls#ReyzVPN-UMOBILE-FUNZ-${user}"
+vlesslink6="vless://${uuid}@104.17.113.188:$none?type=ws&encryption=none&security=none&host=${sts}cdn.who.int.${domain}&path=$patchnontls#VLESS-NTLS-YES-${user}"
+vlesslink7="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=opensignal.com&path=$patchtls&allowInsecure=1&sni=opensignal.com$sni#ReyzVPN-Celcom-0BASIC-${user}"
 clear
 echo -e ""
 echo -e "\e[$line════════[▫️XRAY VLESS WS▫️]════════\e[m"
@@ -1071,6 +1106,16 @@ echo -e "\e[$line═════════════════════
 echo -e "Link TLS         : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link None TLS    : ${vlesslink2}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link DIGI APN     : ${vlesslink3}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link DIGI-BOSSTER : ${vlesslink4}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link UMOBILE-FUNZ : ${vlesslink5}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link YES          : ${vlesslink6}"
+echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Link SELCOM-0BASIC: ${vlesslink7}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Created   : $harini"
 echo -e "Expired   : $exp"

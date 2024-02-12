@@ -28,12 +28,6 @@ exit 0
 fi
 echo -e "\e[32mloading...\e[0m"
 clear
-# TOTAL ACC CREATE VMESS WS
-totalvm=$(grep -c -E "^#vms " "/usr/local/etc/xray/config.json")
-# TOTAL ACC CREATE  VLESS WS
-totalvl=$(grep -c -E "^#vls " "/usr/local/etc/xray/config.json")
-# TOTAL ACC CREATE  VLESS TCP XTLS
-totaltcp=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
 # PROVIDED
 creditt=$(cat /root/provided)
 # BANNER COLOUR
@@ -83,7 +77,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		fi
 	done
 patchtls=/xray-vmessws-tls
-patchnontls=/reyzvpn-none-tls
+patchnontls=/xray-vmessws-none-tls
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "   Bug Address (Example: www.google.com) : " address
 read -p "   Bug SNI/Host (Example : m.facebook.com) : " sni
@@ -230,7 +224,7 @@ systemctl restart xray@none
 service cron restart
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VMESS WS ▫️]════════\e[m"
+echo -e "\e[$line════════[XRAY VMESS WS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "IP/Host        : $MYIP"
@@ -244,15 +238,17 @@ echo -e "Path None Tls  : $patchnontls"
 echo -e "AllowInsecure  : True/Allow"
 echo -e "Support Yaml   : YES"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link TLS       : ${vmesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
@@ -280,7 +276,7 @@ exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
 user=Trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 
 patchtls=/xray-vmessws-tls
-patchnontls=/reyzvpn-none-tls
+patchnontls=/xray-vmessws-none-tls
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "   Bug Address (Example: www.google.com) : " address
 read -p "   Bug SNI/Host (Example : m.facebook.com) : " sni
@@ -425,7 +421,7 @@ systemctl restart xray@none
 service cron restart
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️TRIAL XRAY VMESS WS▫️]════════\e[m"
+echo -e "\e[$line════════[TRIAL XRAY VMESS WS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "IP/Host        : $MYIP"
@@ -439,15 +435,17 @@ echo -e "Path None Tls  : $patchnontls"
 echo -e "AllowInsecure  : True/Allow"
 echo -e "Support Yaml   : YES"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link TLS       : ${vmesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
@@ -576,7 +574,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#vms " "/usr/local/etc/xray/config.json")
 		fi
 	done
 patchtls=/xray-vmessws-tls
-patchnontls=/reyzvpn-none-tls
+patchnontls=/xray-vmessws-none-tls
 user=$(grep -E "^#vms " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 harini=$(grep -E "^#vms " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#vms " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
@@ -707,7 +705,7 @@ vmesslink1="vmess://$(base64 -w 0 /usr/local/etc/xray/$user-tls.json)"
 vmesslink2="vmess://$(base64 -w 0 /usr/local/etc/xray/$user-none.json)"
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VMESS WS▫️]════════\e[m"
+echo -e "\e[$line════════[XRAY VMESS WS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "IP/Host        : $MYIP"
@@ -721,15 +719,17 @@ echo -e "Path None Tls  : $patchnontls"
 echo -e "AllowInsecure  : True/Allow"
 echo -e "Support Yaml   : YES"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link TLS       : ${vmesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
@@ -798,8 +798,8 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
-patchtls=/reyzvpn-tls
-patchnontls=/reyzvpn-ntls
+patchtls=/xray-vlessws-tls
+patchnontls=/xray-vlessws-none-tls
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "   Bug Address (Example: www.google.com) : " address
 read -p "   Bug SNI/Host (Example : m.facebook.com) : " sni
@@ -817,19 +817,13 @@ sed -i '/#xray-vless-tls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/none.json
-vlesslink1="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=${sts}${domain}&path=$patchtls&allowInsecure=1&sni=$sni#VLESS-TLS-${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$none?type=ws&encryption=none&security=none&host=$sni&path=$patchnontls#VLESS-NTLS-${user}"
-vlesslink3="vless://${uuid}@api.useinsider.com:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#VLESS-NTLS-DIGI-APN-${user}"
-vlesslink4="vless://${uuid}@162.159.134.61:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#VLESS-NTLS-DIGI-BOSSTER-${user}"
-vlesslink5="vless://${uuid}@${domain}:$none?type=ws&encryption=none&security=none&host=${sts}m.pubgmobile.com&path=$patchnontls#VLESS-NTLS-UMOBILE-FUNZ-${user}"
-vlesslink6="vless://${uuid}@104.17.113.188:$none?type=ws&encryption=none&security=none&host=${sts}cdn.who.int.${domain}&path=$patchnontls#VLESS-NTLS-YES-${user}"
-vlesslink7="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=opensignal.com&path=$patchtls&allowInsecure=1&sni=opensignal.com$sni#VLESS-TLS-SELCOM-0BASIC-${user}"
-vlesslink8="vless://${uuid}@zn0ejuwm5vp5oqszq-maxiscx.siteintercept.qualtrics.com:$none?type=ws&encryption=none&security=none&host=${sts}zn0ejuwm5vp5oqszq-maxiscx.siteintercept.qualtrics.com.${domain}&path=#VLESS-NTLS-MAXIS-REBORN-${user}"
-systemctl restart xray@vless
-systemctl restart xray@vnone
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#reyzvpn@${user}"
+systemctl restart xray
+systemctl restart xray@none
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VLESS WS▫️]════════\e[m"
+echo -e "\e[$line════════[XRAY VLESS WS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "IP/Host          : $MYIP"
@@ -842,31 +836,21 @@ echo -e "Path Tls         : $patchtls"
 echo -e "Path None Tls    : $patchnontls"
 echo -e "AllowInsecure    : True/Allow"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link TLS         : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link None TLS    : ${vlesslink2}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link DIGI APN     : ${vlesslink3}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link DIGI-BOSSTER : ${vlesslink4}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link UMOBILE-FUNZ : ${vlesslink5}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link YES          : ${vlesslink6}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link SELCOM-0BASIC: ${vlesslink7}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link MAXIS-REBORN : ${vlesslink8}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Created   : $harini"
 echo -e "Expired   : $exp"
@@ -887,8 +871,8 @@ exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
 # Make Random Username 
 user=Trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 
-patchtls=/reyzvpn-tls
-patchnontls=/reyzvpn-ntls
+patchtls=/xray-vlessws-tls
+patchnontls=/xray-vlessws-none-tls
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "   Bug Address (Example: www.google.com) : " address
 read -p "   Bug SNI/Host (Example : m.facebook.com) : " sni
@@ -904,19 +888,13 @@ sed -i '/#xray-vless-tls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#vls '"$user $exp $harini $uuid"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/none.json
-vlesslink1="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=${sts}${domain}&path=$patchtls&allowInsecure=1&sni=$sni#VLESS-TLS-${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$none?type=ws&encryption=none&security=none&host=$sni&path=$patchnontls#VLESS-NTLS-${user}"
-vlesslink3="vless://${uuid}@api.useinsider.com:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#VLESS-NTLS-DIGI-APN-${user}"
-vlesslink4="vless://${uuid}@162.159.134.61:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#VLESS-NTLS-DIGI-BOSSTER-${user}"
-vlesslink5="vless://${uuid}@${domain}:$none?type=ws&encryption=none&security=none&host=${sts}m.pubgmobile.com&path=$patchnontls#VLESS-NTLS-UMOBILE-FUNZ-${user}"
-vlesslink6="vless://${uuid}@104.17.113.188:$none?type=ws&encryption=none&security=none&host=${sts}cdn.who.int.${domain}&path=$patchnontls#VLESS-NTLS-YES-${user}"
-vlesslink7="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=opensignal.com&path=$patchtls&allowInsecure=1&sni=opensignal.com$sni#VLESS-TLS-SELCOM-0BASIC-${user}"
-vlesslink8="vless://${uuid}@zn0ejuwm5vp5oqszq-maxiscx.siteintercept.qualtrics.com:$none?type=ws&encryption=none&security=none&host=${sts}zn0ejuwm5vp5oqszq-maxiscx.siteintercept.qualtrics.com.${domain}&path=#VLESS-NTLS-MAXIS-REBORN-${user}"
-systemctl restart xray@vless
-systemctl restart xray@vnone
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#reyzvpn@${user}"
+systemctl restart xray
+systemctl restart xray@none
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VLESS WS▫️]════════\e[m"
+echo -e "\e[$line════════[TRIAL XRAY VLESS WS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "IP/Host          : $MYIP"
@@ -929,31 +907,21 @@ echo -e "Path Tls         : $patchtls"
 echo -e "Path None Tls    : $patchnontls"
 echo -e "AllowInsecure    : True/Allow"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link TLS         : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link None TLS    : ${vlesslink2}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link DIGI APN     : ${vlesslink3}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link DIGI-BOSSTER : ${vlesslink4}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link UMOBILE-FUNZ : ${vlesslink5}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link YES          : ${vlesslink6}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link SELCOM-0BASIC: ${vlesslink7}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link MAXIS-REBORN : ${vlesslink8}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Created   : $harini"
 echo -e "Expired   : $exp"
@@ -1071,25 +1039,17 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#vls " "/usr/local/etc/xray/config.json")
 			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-patchtls=/reyzvpn-tls
-patchnontls=/reyzvpn-ntls
+patchtls=/xray-vlessws-tls
+patchnontls=/xray-vlessws-none-tls
 user=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 harini=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 uuid=$(grep -E "^#vls " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 5 | sed -n "${CLIENT_NUMBER}"p)
-vlesslink1="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=${sts}${domain}&path=$patchtls&allowInsecure=1&sni=$sni#VLESS-TLS-${user}"
-vlesslink2="vless://${uuid}@${sts}${domain}:$none?type=ws&encryption=none&security=none&host=$sni&path=$patchnontls#VLESS-NTLS-${user}"
-vlesslink3="vless://${uuid}@api.useinsider.com:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#VLESS-NTLS-DIGI-APN-${user}"
-vlesslink4="vless://${uuid}@162.159.134.61:$none?type=ws&encryption=none&security=none&host=${sts}${domain}&path=$patchnontls#VLESS-NTLS-DIGI-BOSSTER-${user}"
-vlesslink5="vless://${uuid}@${domain}:$none?type=ws&encryption=none&security=none&host=${sts}m.pubgmobile.com&path=$patchnontls#VLESS-NTLS-UMOBILE-FUNZ-${user}"
-vlesslink6="vless://${uuid}@104.17.113.188:$none?type=ws&encryption=none&security=none&host=${sts}cdn.who.int.${domain}&path=$patchnontls#VLESS-NTLS-YES-${user}"
-vlesslink7="vless://${uuid}@${sts}${domain}:$tls?type=ws&encryption=none&security=tls&host=opensignal.com&path=$patchtls&allowInsecure=1&sni=opensignal.com$sni#VLESS-TLS-SELCOM-0BASIC-${user}"
-vlesslink8="vless://${uuid}@zn0ejuwm5vp5oqszq-maxiscx.siteintercept.qualtrics.com:$none?type=ws&encryption=none&security=none&host=${sts}zn0ejuwm5vp5oqszq-maxiscx.siteintercept.qualtrics.com.${domain}&path=#VLESS-NTLS-MAXIS-REBORN-${user}"
-systemctl restart xray@vless
-systemctl restart xray@vnone
+vlesslink1="vless://${uuid}@${sts}${domain}:$tls?path=$patchtls&security=tls&encryption=none&type=ws&sni=$sni#reyzvpn@${user}"
+vlesslink2="vless://${uuid}@${sts}${domain}:$none?path=$patchnontls&encryption=none&host=$sni&type=ws#reyzvpn@${user}"
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VLESS WS▫️]════════\e[m"
+echo -e "\e[$line════════[XRAY VLESS WS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "IP/Host          : $MYIP"
@@ -1102,31 +1062,21 @@ echo -e "Path Tls         : $patchtls"
 echo -e "Path None Tls    : $patchnontls"
 echo -e "AllowInsecure    : True/Allow"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link TLS         : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link None TLS    : ${vlesslink2}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link DIGI APN     : ${vlesslink3}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link DIGI-BOSSTER : ${vlesslink4}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link UMOBILE-FUNZ : ${vlesslink5}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link YES          : ${vlesslink6}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link SELCOM-0BASIC: ${vlesslink7}"
-echo -e "\e[$line═════════════════════════════════\e[m"
-echo -e "Link MAXIS-REBORN : ${vlesslink8}"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Created   : $harini"
 echo -e "Expired   : $exp"
@@ -1208,7 +1158,7 @@ vlesslink2="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&
 systemctl restart xray
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VLESS XTLS▫️]════════\e[m"
+echo -e "\e[$line════════[XRAY VLESS XTLS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "Ip/Host        : ${MYIP}"
@@ -1219,15 +1169,17 @@ echo -e "Network        : TCP"
 echo -e "Flow           : Direct & Splice"
 echo -e "AllowInsecure  : True"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link Xtls Direct  : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
@@ -1269,7 +1221,7 @@ vlesslink2="vless://${uuid}@${sts}${domain}:$xtls?security=xtls&encryption=none&
 systemctl restart xray
 clear
 echo -e ""
-echo -e "\e[$line═══════[▫️TRIAL XRAY VLESS XTLS▫️]════════\e[m"
+echo -e "\e[$line═══════[TRIAL XRAY VLESS XTLS]════════\e[m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "Ip/Host        : ${MYIP}"
@@ -1280,15 +1232,17 @@ echo -e "Network        : TCP"
 echo -e "Flow           : Direct & Splice"
 echo -e "AllowInsecure  : True"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link Xtls Direct  : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
@@ -1416,7 +1370,7 @@ vlesslink1="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&header
 vlesslink2="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=bug.com#reyzvpn@${user}"
 clear
 echo -e ""
-echo -e "\e[$line════════[▫️XRAY VLESS XTLS▫️]════════\e[m"
+echo -e "\e[$line════════[XRAY VLESS XTLS]════════\e[m"
 echo -e "Remarks          : ${user}"
 echo -e "Domain           : ${domain}"
 echo -e "Ip/Host          : ${MYIP}"
@@ -1427,15 +1381,17 @@ echo -e "Network          : TCP"
 echo -e "Flow             : Direct & Splice"
 echo -e "AllowInsecure    : True"
 echo -e "\e[$line═════════════════════════════════\e[m"
+echo -e "Pantang Larang $creditt Shop"
+echo -e "â€¼ï¸Aktiviti Berikut Adalah Dilarang(ID akan di ban tanpa notis & tiada refund)"
+echo -e "\e[31m❌ Torrent (p2p, streaming p2p)"
 echo -e "\e[31m❌ PS4"
 echo -e "\e[31m❌ Porn"
-echo -e "\e[31m❌ Torrent"
+echo -e "\e[31m❌ Spam Bug"
 echo -e "\e[31m❌ Ddos Server"
+echo -e "\e[31m❌ Mining Bitcoins"
 echo -e "\e[31m❌ Abuse Usage"
 echo -e "\e[31m❌ Multi-Login ID"
-echo -e "\e[31m❌ Mining Bitcoins"
-echo -e "\e[31m❌ Sharing Premium ID\e[m"
-echo -e "\e[31m🔰 Script By @GHReyz 🔰"
+echo -e "\e[31m❌ Sharing Premium Config\e[m"
 echo -e "\e[$line═════════════════════════════════\e[m"
 echo -e "Link Xtls Direct : ${vlesslink1}"
 echo -e "\e[$line═════════════════════════════════\e[m"
@@ -1487,6 +1443,8 @@ done
 }
 # MENU XRAY VMESS & VLESS
 clear
+echo -e ""
+echo echo -e ""
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
 echo -e "   \e[$back_text   \e[30m═[\e[$box PANEL XRAY VMESS WEBSOCKET TLS\e[30m ]═   \e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
@@ -1497,7 +1455,7 @@ echo -e "    \e[$number (•4)\e[m \e[$below Renew Vmess Websocket Account\e[m"
 echo -e "    \e[$number (•5)\e[m \e[$below Show Config Vmess Account\e[m"
 echo -e "    \e[$number (•6)\e[m \e[$below Check User Login Vmess\e[m"
 echo -e ""
-echo -e "   \e[$number    >> Total User :\e[m \e[$below ${total1} Client\e[m"
+echo -e "   \e[$number    >> Total :\e[m \e[$below ${total1} Client\e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
 echo -e "   \e[$back_text   \e[30m═[\e[$box PANEL XRAY VLESS WEBSOCKET TLS\e[30m ]═   \e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
@@ -1508,7 +1466,7 @@ echo -e "    \e[$number (10)\e[m \e[$below Renew Vless Websocket Account\e[m"
 echo -e "    \e[$number (11)\e[m \e[$below Show Config Vless Account\e[m"
 echo -e "    \e[$number (12)\e[m \e[$below Check User Login Vless\e[m"
 echo -e ""
-echo -e "   \e[$number    >> Total User :\e[m \e[$below ${total2} Client\e[m"
+echo -e "   \e[$number    >> Total :\e[m \e[$below ${total2} Client\e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
 echo -e "   \e[$back_text\e[30m═[\e[$box XRAY VLESS TCP XTLS(Direct & Splice)\e[30m ]═\e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
@@ -1519,7 +1477,7 @@ echo -e "    \e[$number (16)\e[m \e[$below Renew Xray Vless Xtls Account\e[m"
 echo -e "    \e[$number (17)\e[m \e[$below Show Config Vless Xtls Account\e[m"
 echo -e "    \e[$number (18)\e[m \e[$below Check User Login Vless Xtls\e[m"
 echo -e ""
-echo -e "   \e[$number    >> Total User :\e[m \e[$below ${total3} Client\e[m"
+echo -e "   \e[$number    >> Total :\e[m \e[$below ${total3} Client\e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
 echo -e "   \e[$back_text  \e[$box x)   MENU                              \e[m"
 echo -e "   \e[$line══════════════════════════════════════════\e[m"
@@ -1570,4 +1528,3 @@ echo -e "\e[1;31mYou Entered The Wrong Number, Please Try Again!\e[0m"
 sleep 1
 xraay
 fi
-
